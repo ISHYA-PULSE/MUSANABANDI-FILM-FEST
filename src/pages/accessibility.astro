@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { FESTIVAL_INFO } from '../data/festival';
+import { ACCESSIBILITY_FEATURES, VENUE_INFO } from '../data/accessibility';
+---
+
+<BaseLayout
+  title={`Accessibility & Inclusion Policy | ${FESTIVAL_INFO.name}`}
+  description="Learn about MUSANABANDI's radical commitment to universal physical and digital accessibility in Kigali, Rwanda."
+>
+  <div class="py-16 md:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-amber)] mb-2 block">
+        Universal Design • WCAG 2.1 AAA
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-[var(--color-text-primary)]">
+        Inclusion Without Compromise
+      </h1>
+      <p class="mt-4 text-base text-[var(--color-text-secondary)]">
+        Accessibility is not an afterthought at MUSANABANDI—it is the foundation upon which every screening, workshop, and venue is designed.
+      </p>
+    </header>
+
+    <!-- Venue Physical Access -->
+    <section class="mb-16 p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+      <h2 class="text-xl font-bold text-[var(--color-accent-amber)] mb-4">Official Venue Access: {VENUE_INFO.mainVenue}</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-[var(--color-text-secondary)]">
+        <div>
+          <strong class="text-[var(--color-text-primary)] block mb-1">Address & Approach:</strong>
+          <p>{VENUE_INFO.address}. Step-free pathways connect all transport drop-off areas directly to venue doors.</p>
+        </div>
+        <div>
+          <strong class="text-[var(--color-text-primary)] block mb-1">Accessible Parking:</strong>
+          <p>{VENUE_INFO.parking}. Ramps lead directly to the screening pavilions without curbs or steps.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accessibility Services Grid -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6">Our Standard Accommodations</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {ACCESSIBILITY_FEATURES.map(feat => (
+          <div class="p-6 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+            <h3 class="text-base font-bold text-[var(--color-text-primary)] mb-2">{feat.title}</h3>
+            <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">{feat.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Request Accommodations Contact -->
+    <section id="accommodations" class="p-8 rounded-3xl bg-[var(--color-canvas)] border border-[var(--color-border)] text-center">
+      <h2 class="text-xl font-bold text-[var(--color-text-primary)] mb-2">Need Bespoke Assistance?</h2>
+      <p class="text-xs text-[var(--color-text-secondary)] max-w-lg mx-auto mb-6">
+        If you require specific mobility assistance, Braille materials, personal guidance upon arrival in Kigali, or sign interpretation for an unlisted session, let our team know.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href={FESTIVAL_INFO.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-6 py-3 rounded-xl font-bold text-xs bg-emerald-600 hover:bg-emerald-500 text-white"
+        >
+          💬 Message Accessibility Coordinator via WhatsApp
+        </a>
+        <a
+          href={`mailto:${FESTIVAL_INFO.email}?subject=Accessibility%20Request%20MUSANABANDI`}
+          class="px-6 py-3 rounded-xl font-semibold text-xs bg-[var(--color-surface)] border border-[var(--color-border)] text-white hover:border-[var(--color-accent-amber)]"
+        >
+          Email Accessibility Team
+        </a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

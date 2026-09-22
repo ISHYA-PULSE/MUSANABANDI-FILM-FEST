@@ -1,0 +1,36 @@
+---
+import { PILLARS } from '../../data/festival';
+---
+<section class="py-20 bg-[var(--color-canvas)] border-b border-[var(--color-border-subtle)]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-amber)] mb-2">
+        Core Pillars • Inkingi z'Ibanze
+      </h2>
+      <p class="text-3xl font-extrabold text-[var(--color-text-primary)]">
+        The Four Cornerstones of MUSANABANDI
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {PILLARS.map(pillar => (
+        <article class="p-6 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-accent-amber)] transition-all flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-2xl font-black text-[var(--color-accent-amber)]">{pillar.title}</span>
+              <span class="text-xs font-medium px-2 py-1 rounded bg-[var(--color-canvas)] border border-[var(--color-border)] text-[var(--color-text-secondary)]">
+                {pillar.kinyarwanda}
+              </span>
+            </div>
+            <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+              {pillar.description}
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-[var(--color-border-subtle)] text-xs text-[var(--color-text-muted)] group-hover:text-[var(--color-accent-amber)] transition-colors">
+            Stories Without Barriers →
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

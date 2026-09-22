@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { FESTIVAL_INFO } from '../data/festival';
+import { PARTNER_TIERS, PARTNER_LOGOS } from '../data/partners';
+---
+
+<BaseLayout
+  title={`Partner With Us | ${FESTIVAL_INFO.name}`}
+  description="Partner with Rwanda's premier disability-inclusive film festival. Explore sponsorship packages, corporate allyship, and cultural grants."
+>
+  <div class="py-16 md:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-amber)] mb-2 block">
+        Sponsorship & Philanthropy
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-[var(--color-text-primary)]">
+        Invest in Stories Without Barriers
+      </h1>
+      <p class="mt-4 text-base text-[var(--color-text-secondary)]">
+        Partnering with MUSANABANDI directly finances creative incubation, accessible equipment, and living-wage opportunities for disabled artists in Rwanda.
+      </p>
+    </header>
+
+    <!-- Sponsorship Tiers -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6 text-center">Partnership Packages</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {PARTNER_TIERS.map(tier => (
+          <div class="p-6 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-accent-amber)] transition-all flex flex-col justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-[var(--color-accent-amber)] mb-2">{tier.name}</h3>
+              <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed mb-6">{tier.description}</p>
+              
+              <ul class="space-y-2 mb-6">
+                {tier.benefits.map(b => (
+                  <li class="flex items-start gap-2 text-xs text-[var(--color-text-primary)]">
+                    <span class="text-[var(--color-accent-amber)]">✔</span>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <a
+              href="mailto:partners@musanabandifilmfest.rw?subject=Partnership%20Interest"
+              class="w-full text-center py-2.5 rounded-xl font-bold text-xs bg-[var(--color-canvas)] border border-[var(--color-border)] text-white hover:border-[var(--color-accent-amber)] transition-colors"
+            >
+              Inquire About Tier
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Institutional Partners -->
+    <section class="p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)] text-center">
+      <h2 class="text-lg font-bold text-[var(--color-text-primary)] mb-4">Our Growing Network of Allies</h2>
+      <div class="flex flex-wrap justify-center gap-3">
+        {PARTNER_LOGOS.map(p => (
+          <span class="px-3 py-1.5 rounded-lg bg-[var(--color-canvas)] border border-[var(--color-border)] text-xs text-[var(--color-text-secondary)]">
+            {p.name}
+          </span>
+        ))}
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-[var(--color-border-subtle)] max-w-md mx-auto">
+        <p class="text-xs text-[var(--color-text-muted)] mb-3">Direct contact with the Festival Director:</p>
+        <a
+          href={FESTIVAL_INFO.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs bg-emerald-600 hover:bg-emerald-500 text-white"
+        >
+          <span>💬</span> Chat via WhatsApp
+        </a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-dyslexic: 'Atkinson Hyperlegible', sans-serif;
+
+  /* 60-30-10 Color Hierarchy */
+  --color-canvas: #0B0E14;
+  --color-canvas-subtle: #10141D;
+  --color-surface: #151B27;
+  --color-surface-hover: #1E2638;
+  --color-border: #232D42;
+  --color-border-subtle: #1C2436;
+
+  /* Typography Colors */
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #64748B;
+
+  /* 10% Action & Empowerment Accents */
+  --color-accent-amber: #F59E0B;
+  --color-accent-amber-hover: #D97706;
+  --color-accent-amber-glow: rgba(245, 158, 11, 0.15);
+  
+  --color-accent-indigo: #6366F1;
+  --color-accent-indigo-hover: #4F46E5;
+  --color-accent-indigo-glow: rgba(99, 102, 241, 0.15);
+
+  --color-accent-terracotta: #E0533C;
+}
+
+/* Accessibility: High Contrast Mode */
+[data-contrast="high"] {
+  --color-canvas: #000000 !important;
+  --color-canvas-subtle: #0a0a0a !important;
+  --color-surface: #000000 !important;
+  --color-surface-hover: #111111 !important;
+  --color-border: #FFFF00 !important;
+  --color-border-subtle: #FFFFFF !important;
+  --color-text-primary: #FFFF00 !important;
+  --color-text-secondary: #FFFFFF !important;
+  --color-text-muted: #FFFF00 !important;
+  --color-accent-amber: #FFFF00 !important;
+  --color-accent-amber-hover: #FFFFFF !important;
+  --color-accent-indigo: #00FFFF !important;
+}
+
+/* Accessibility: Clean Light Mode */
+[data-theme="light"] {
+  --color-canvas: #F8FAFC !important;
+  --color-canvas-subtle: #F1F5F9 !important;
+  --color-surface: #FFFFFF !important;
+  --color-surface-hover: #F8FAFC !important;
+  --color-border: #CBD5E1 !important;
+  --color-border-subtle: #E2E8F0 !important;
+  --color-text-primary: #0F172A !important;
+  --color-text-secondary: #334155 !important;
+  --color-text-muted: #64748B !important;
+  --color-accent-amber: #D97706 !important;
+  --color-accent-indigo: #4F46E5 !important;
+}
+
+/* Accessibility: Font Resizing */
+[data-text-size="large"] {
+  font-size: 115% !important;
+}
+
+[data-text-size="xlarge"] {
+  font-size: 130% !important;
+}
+
+/* Accessibility: Dyslexia Friendly Mode */
+[data-font="dyslexic"] body {
+  font-family: var(--font-dyslexic) !important;
+  letter-spacing: 0.03em !important;
+  word-spacing: 0.08em !important;
+  line-height: 1.8 !important;
+}
+
+/* Accessible Focus States */
+:focus-visible {
+  outline: 3px solid var(--color-accent-amber) !important;
+  outline-offset: 3px !important;
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+[data-motion="reduced"] *,
+[data-motion="reduced"] *::before,
+[data-motion="reduced"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}

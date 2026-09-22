@@ -1,0 +1,112 @@
+---
+import { NAV_LINKS } from '../data/navigation';
+import { FESTIVAL_INFO } from '../data/festival';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+---
+<header class="sticky top-0 z-30 w-full backdrop-blur-md bg-[var(--color-canvas)]/90 border-b border-[var(--color-border-subtle)]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <!-- Brand Logo -->
+    <a href="/" class="flex items-center gap-3 group focus:outline-none" aria-label="MUSANABANDI Film Festival Home">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-accent-amber)] to-[var(--color-accent-terracotta)] flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+        <span class="text-black font-extrabold text-xl tracking-tighter">M</span>
+      </div>
+      <div>
+        <span class="text-lg font-bold tracking-tight text-[var(--color-text-primary)] block leading-tight group-hover:text-[var(--color-accent-amber)] transition-colors">
+          MUSANABANDI
+        </span>
+        <span class="text-xs text-[var(--color-text-secondary)] tracking-widest uppercase font-medium">
+          Film Festival • Rwanda
+        </span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-1" aria-label="Primary Navigation">
+      {NAV_LINKS.map(link => {
+        const isActive = currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href));
+        return (
+          <a
+            href={link.href}
+            class={`relative px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              isActive
+                ? 'text-[var(--color-accent-amber)] bg-[var(--color-surface)]'
+                : 'text-[var(--color-text-secondary)] hover:text-white hover:bg-[var(--color-surface)]/50'
+            }`}
+            aria-current={isActive ? 'page' : undefined}
+          >
+            {link.label}
+            {link.badge && (
+              <span class="ml-1.5 px-1.5 py-0.5 text-[10px] font-bold uppercase bg-[var(--color-accent-amber)] text-black rounded">
+                {link.badge}
+              </span>
+            )}
+          </a>
+        );
+      })}
+    </nav>
+
+    <!-- Header Action Button -->
+    <div class="hidden lg:flex items-center gap-3">
+      <a
+        href="/submit"
+        class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-lg bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] text-black shadow-md hover:shadow-amber-500/20 transition-all cursor-pointer"
+      >
+        Submit Your Film
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-btn"
+      type="button"
+      class="md:hidden p-2 rounded-lg text-[var(--color-text-primary)] hover:bg-[var(--color-surface)] border border-[var(--color-border)] cursor-pointer"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Toggle menu"
+    >
+      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-6 bg-[var(--color-canvas)] border-b border-[var(--color-border)]">
+    <div class="flex flex-col gap-2">
+      {NAV_LINKS.map(link => (
+        <a
+          href={link.href}
+          class="flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]"
+        >
+          <span>{link.label}</span>
+          {link.badge && (
+            <span class="px-2 py-0.5 text-xs font-bold uppercase bg-[var(--color-accent-amber)] text-black rounded">
+              {link.badge}
+            </span>
+          )}
+        </a>
+      ))}
+      <a
+        href="/submit"
+        class="mt-2 w-full text-center py-3 rounded-lg font-semibold bg-[var(--color-accent-amber)] text-black"
+      >
+        Submit Your Film
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!isExpanded));
+    menu?.classList.toggle('hidden');
+  });
+</script>

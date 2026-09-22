@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://musanabandifilmfest.rw/sitemap-index.xml

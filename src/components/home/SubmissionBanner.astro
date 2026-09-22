@@ -1,0 +1,58 @@
+---
+import { SUBMISSION_DEADLINES } from '../../data/submissions';
+---
+<section class="py-20 bg-[var(--color-surface)] border-b border-[var(--color-border-subtle)]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Left Info -->
+      <div class="lg:col-span-7 space-y-5">
+        <span class="inline-block px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-[var(--color-accent-amber)] text-black">
+          Call For Submissions Open
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-[var(--color-text-primary)]">
+          Submit Your Story to MUSANABANDI 2026
+        </h2>
+        <p class="text-base text-[var(--color-text-secondary)] leading-relaxed">
+          Are you a filmmaker with a disability, or have you directed cinema that champions authentic disability inclusion? We invite feature films, documentaries, shorts, animations, and student work.
+        </p>
+
+        <div class="p-4 rounded-xl bg-[var(--color-canvas)] border border-[var(--color-accent-amber)]/30 text-sm text-[var(--color-text-secondary)]">
+          <strong class="text-[var(--color-accent-amber)]">Accessibility Pledge:</strong> Submission fees are 100% waived for directors, writers, and lead producers who identify as persons with disabilities.
+        </div>
+
+        <div class="pt-2 flex flex-wrap gap-4">
+          <a
+            href="/submit"
+            class="px-6 py-3 rounded-xl font-bold bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] text-black transition-all"
+          >
+            Read Rules & Submit Film
+          </a>
+          <a
+            href="/submit#categories"
+            class="px-6 py-3 rounded-xl font-semibold bg-[var(--color-surface)] hover:bg-[var(--color-surface-hover)] border border-[var(--color-border)] text-white transition-all"
+          >
+            View Categories
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Timeline Card -->
+      <div class="lg:col-span-5 bg-[var(--color-canvas)] p-6 rounded-2xl border border-[var(--color-border)]">
+        <h3 class="text-sm font-bold uppercase tracking-wider text-[var(--color-text-primary)] mb-4 pb-2 border-b border-[var(--color-border)]">
+          Key Submission Deadlines
+        </h3>
+        <div class="space-y-4">
+          {SUBMISSION_DEADLINES.map(deadline => (
+            <div class="flex items-center justify-between text-sm py-1 border-b border-[var(--color-border-subtle)] last:border-0">
+              <div>
+                <span class="font-semibold block text-[var(--color-text-primary)]">{deadline.stage}</span>
+                <span class="text-xs text-[var(--color-accent-amber)]">{deadline.fee}</span>
+              </div>
+              <span class="text-xs font-mono text-[var(--color-text-secondary)]">{deadline.date}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,48 @@
+---
+import { ACCESSIBILITY_FEATURES, VENUE_INFO } from '../../data/accessibility';
+---
+<section class="py-20 bg-[var(--color-canvas-subtle)] border-b border-[var(--color-border-subtle)]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+      <div>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-amber)] mb-2">
+          Universal Physical & Digital Access
+        </h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-[var(--color-text-primary)]">
+          Every Space Built Without Barriers
+        </p>
+      </div>
+      <a
+        href="/accessibility"
+        class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent-amber)] hover:underline"
+      >
+        Read Full Accessibility Guide & Transit Maps →
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {ACCESSIBILITY_FEATURES.slice(0, 6).map(item => (
+        <div class="p-6 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+          <h3 class="text-base font-bold text-[var(--color-text-primary)] mb-2">
+            {item.title}
+          </h3>
+          <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">
+            {item.description}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-8 p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-xs text-[var(--color-text-secondary)]">
+        <strong class="text-[var(--color-text-primary)]">Official Main Venue:</strong> {VENUE_INFO.mainVenue} ({VENUE_INFO.address}). Accessible parking and shuttle stops right at Gate 1.
+      </div>
+      <a
+        href="/accessibility#accommodations"
+        class="text-xs font-semibold px-4 py-2 rounded-lg bg-[var(--color-canvas)] border border-[var(--color-border)] text-[var(--color-text-primary)] hover:border-[var(--color-accent-amber)]"
+      >
+        Request Specific Accommodations
+      </a>
+    </div>
+  </div>
+</section>

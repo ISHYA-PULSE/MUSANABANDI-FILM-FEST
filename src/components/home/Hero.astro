@@ -1,0 +1,59 @@
+---
+import { FESTIVAL_INFO } from '../../data/festival';
+---
+<section class="relative overflow-hidden pt-12 pb-24 lg:pt-20 lg:pb-32 bg-radial from-[var(--color-surface)] to-[var(--color-canvas)] border-b border-[var(--color-border-subtle)]">
+  <!-- Subtle decorative ambient glow -->
+  <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 bg-[var(--color-accent-amber)]/10 blur-[120px] rounded-full pointer-events-none" aria-hidden="true"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+    <!-- Date & Location Badge -->
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm mb-6">
+      <span class="w-2 h-2 rounded-full bg-[var(--color-accent-amber)] animate-pulse" aria-hidden="true"></span>
+      <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)]">
+        {FESTIVAL_INFO.dates} • Kigali, Rwanda
+      </span>
+    </div>
+
+    <!-- Main Heading -->
+    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[var(--color-text-primary)] max-w-4xl mx-auto leading-tight">
+      Stories Without <span class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent-amber)] to-[var(--color-accent-terracotta)]">Barriers</span>
+    </h1>
+
+    <!-- Subtitle / Four Pillars -->
+    <p class="mt-6 text-lg sm:text-xl font-medium text-[var(--color-accent-amber)] tracking-widest uppercase">
+      Film • Inclusion • Dignity • Ability
+    </p>
+
+    <!-- Mission Abstract -->
+    <p class="mt-6 text-base sm:text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto leading-relaxed">
+      A transformative disability-inclusive film festival in Rwanda using cinema to challenge stigma, celebrate authentic abilities, and empower disabled storytellers as industry leaders.
+    </p>
+
+    <!-- CTAs -->
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a
+        href="/submit"
+        class="w-full sm:w-auto px-8 py-3.5 rounded-xl font-bold text-black bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] shadow-lg hover:shadow-amber-500/25 transition-all text-center"
+      >
+        Submit Your Film
+      </a>
+      <a
+        href="/program"
+        class="w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold text-[var(--color-text-primary)] bg-[var(--color-surface)] hover:bg-[var(--color-surface-hover)] border border-[var(--color-border)] transition-all text-center"
+      >
+        Explore Program
+      </a>
+      <a
+        href="/partner"
+        class="w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold text-[var(--color-text-secondary)] hover:text-white transition-colors text-center"
+      >
+        Partner with Us →
+      </a>
+    </div>
+
+    <!-- Belief Banner -->
+    <div class="mt-16 p-4 rounded-2xl bg-[var(--color-canvas)]/80 border border-[var(--color-border)] max-w-3xl mx-auto text-sm text-[var(--color-text-secondary)] italic">
+      "{FESTIVAL_INFO.belief}"
+    </div>
+  </div>
+</section>

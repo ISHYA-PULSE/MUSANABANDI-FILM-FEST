@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { FESTIVAL_INFO } from '../data/festival';
+import { SUBMISSION_CATEGORIES, SUBMISSION_DEADLINES, SUBMISSION_REQUIREMENTS } from '../data/submissions';
+---
+
+<BaseLayout
+  title={`Submit Your Film | ${FESTIVAL_INFO.name}`}
+  description="Call for Entries: Submit your disability-inclusive films, documentaries, shorts, and animations to MUSANABANDI 2026."
+>
+  <div class="py-16 md:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-amber)] mb-2 block">
+        Call for Entries • 2026 Edition
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-[var(--color-text-primary)]">
+        Share Your Story Without Barriers
+      </h1>
+      <p class="mt-4 text-base text-[var(--color-text-secondary)]">
+        Submissions are open for fiction, documentary, animation, and student films centering disability representation on screen and behind the lens.
+      </p>
+    </header>
+
+    <!-- Fee Waiver Highlight -->
+    <div class="mb-12 p-6 rounded-2xl bg-[var(--color-surface)] border-2 border-[var(--color-accent-amber)] flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h2 class="text-lg font-bold text-[var(--color-text-primary)]">100% Submission Fee Waiver for Creators with Disabilities</h2>
+        <p class="text-xs text-[var(--color-text-secondary)] mt-1">
+          Financial barriers must never obstruct creative participation. All disabled filmmakers submit for free.
+        </p>
+      </div>
+      <a
+        href="mailto:submissions@musanabandifilmfest.rw?subject=Fee%20Waiver%20Inquiry%20MUSANABANDI"
+        class="shrink-0 px-5 py-2.5 rounded-xl font-bold text-xs bg-[var(--color-accent-amber)] text-black hover:bg-[var(--color-accent-amber-hover)] transition-all"
+      >
+        Request Waiver Code
+      </a>
+    </div>
+
+    <!-- Categories Grid -->
+    <section id="categories" class="mb-16">
+      <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6">Competitive Categories</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {SUBMISSION_CATEGORIES.map(cat => (
+          <div class="p-6 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+            <h3 class="text-lg font-bold text-[var(--color-accent-amber)]">{cat.title}</h3>
+            <span class="text-xs font-mono text-[var(--color-text-muted)] block mt-0.5 mb-3">{cat.runtime}</span>
+            <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed mb-4">{cat.description}</p>
+            <div class="pt-3 border-t border-[var(--color-border-subtle)] text-[11px] text-[var(--color-text-muted)]">
+              <strong>Eligibility:</strong> {cat.eligibility}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Submission Guidelines -->
+    <section class="p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+      <h2 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">Submission Requirements</h2>
+      <ul class="space-y-3 mb-8">
+        {SUBMISSION_REQUIREMENTS.map(req => (
+          <li class="flex items-start gap-3 text-xs text-[var(--color-text-secondary)]">
+            <span class="text-[var(--color-accent-amber)]">✔</span>
+            <span>{req}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div class="text-center pt-4">
+        <a
+          href="https://filmfreeway.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-bold bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] text-black shadow-lg"
+        >
+          <span>🎬</span> Submit via FilmFreeway
+        </a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

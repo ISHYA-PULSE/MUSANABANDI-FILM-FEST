@@ -1,0 +1,47 @@
+---
+import { PARTNER_LOGOS } from '../../data/partners';
+---
+<section class="py-20 bg-[var(--color-canvas)]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-amber)] mb-2">
+      Collaborators & Champions
+    </h2>
+    <p class="text-2xl sm:text-3xl font-extrabold text-[var(--color-text-primary)] mb-10">
+      Supported by Visionary Institutions and Communities
+    </p>
+
+    <!-- Partner Badges -->
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-4xl mx-auto mb-12">
+      {PARTNER_LOGOS.map(partner => (
+        <div class="p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] flex flex-col items-center justify-center text-center">
+          <span class="text-xs font-bold text-[var(--color-text-primary)]">{partner.name}</span>
+          <span class="text-[10px] text-[var(--color-text-muted)] mt-1">{partner.category}</span>
+        </div>
+      ))}
+    </div>
+
+    <!-- Sponsor Callout -->
+    <div class="p-8 rounded-2xl bg-gradient-to-r from-[var(--color-surface)] to-[var(--color-canvas)] border border-[var(--color-border)] max-w-3xl mx-auto">
+      <h3 class="text-xl font-bold text-[var(--color-text-primary)] mb-2">
+        Become a Festival Partner or Sponsor
+      </h3>
+      <p class="text-sm text-[var(--color-text-secondary)] mb-6 max-w-xl mx-auto">
+        Join leading development partners, cultural agencies, and corporate pioneers building a truly inclusive Rwanda.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/partner"
+          class="px-6 py-2.5 rounded-xl font-bold text-sm bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] text-black"
+        >
+          View Sponsorship Packages
+        </a>
+        <a
+          href="mailto:partners@musanabandifilmfest.rw"
+          class="px-6 py-2.5 rounded-xl font-semibold text-sm bg-[var(--color-canvas)] border border-[var(--color-border)] text-white hover:border-[var(--color-accent-amber)]"
+        >
+          Contact Partnership Team
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

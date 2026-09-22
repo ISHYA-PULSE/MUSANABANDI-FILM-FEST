@@ -1,0 +1,112 @@
+---
+import SkipLink from '../components/SkipLink.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import AccessibilityToolbar from '../components/AccessibilityToolbar.astro';
+import { FESTIVAL_INFO } from '../data/festival';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = `${FESTIVAL_INFO.name} | ${FESTIVAL_INFO.tagline}`,
+  description = "MUSANABANDI is Rwanda's premier disability-inclusive film and creative arts festival. Promoting dignity, equality, and creative empowerment. Stories Without Barriers.",
+  image = "/og-musanabandi.png"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://musanabandifilmfest.rw');
+
+// JSON-LD Structured Data (Event & Organization Schema)
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://musanabandifilmfest.rw/#organization",
+      "name": FESTIVAL_INFO.name,
+      "url": "https://musanabandifilmfest.rw",
+      "slogan": FESTIVAL_INFO.tagline,
+      "description": description,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": FESTIVAL_INFO.city,
+        "addressCountry": FESTIVAL_INFO.country
+      }
+    },
+    {
+      "@type": "Festival",
+      "@id": "https://musanabandifilmfest.rw/#event",
+      "name": `${FESTIVAL_INFO.name} 2026`,
+      "description": description,
+      "startDate": "2026-11-19",
+      "endDate": "2026-11-22",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": FESTIVAL_INFO.venue,
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kigali",
+          "addressCountry": "RW"
+        }
+      },
+      "organizer": {
+        "@id": "https://musanabandifilmfest.rw/#organization"
+      }
+    }
+  ]
+};
+---
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="Rwanda film festival, disability film festival, inclusive arts Kigali, African cinema, disability empowerment, stories without barriers, Musanabandi" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, canonicalURL)} />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, canonicalURL)} />
+
+    <!-- High-Performance Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body class="bg-[var(--color-canvas)] text-[var(--color-text-primary)] font-['Inter',sans-serif] min-h-screen flex flex-col antialiased selection:bg-[var(--color-accent-amber)] selection:text-black">
+    <SkipLink />
+    <Navbar currentPath={Astro.url.pathname} />
+    
+    <main id="main-content" class="flex-grow focus:outline-none">
+      <slot />
+    </main>
+
+    <Footer />
+    <AccessibilityToolbar />
+  </body>
+</html>

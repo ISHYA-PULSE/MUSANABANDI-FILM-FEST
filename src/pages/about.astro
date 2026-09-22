@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { FESTIVAL_INFO, PILLARS } from '../data/festival';
+import { FESTIVAL_GOALS } from '../data/goals';
+---
+
+<BaseLayout
+  title={`About Us | ${FESTIVAL_INFO.name}`}
+  description="Discover the origin, mission, vision, and transformative goals of MUSANABANDI Film Festival in Rwanda."
+>
+  <div class="py-16 md:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <header class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-amber)] mb-2 block">
+        Our Story & Philosophy
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-[var(--color-text-primary)] tracking-tight">
+        Dignity, Inclusion, and Creative Agency
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-[var(--color-text-secondary)]">
+        MUSANABANDI was born from the conviction that disability should never be a barrier to creativity, dignity, participation, or opportunity.
+      </p>
+    </header>
+
+    <!-- The Meaning of Musanabandi -->
+    <section class="mb-16 p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+      <h2 class="text-xl font-bold text-[var(--color-accent-amber)] mb-3">The Meaning of "Musanabandi"</h2>
+      <p class="text-sm sm:text-base text-[var(--color-text-secondary)] leading-relaxed mb-4">
+        In Kinyarwanda, <em>Musanabandi</em> speaks to shared humanity, kinship, and fundamental equality—reminding society that persons with disabilities are equal members of the community, endowed with identical rights, talents, and creative potential.
+      </p>
+      <div class="p-4 rounded-xl bg-[var(--color-canvas)] border border-[var(--color-border-subtle)] text-xs text-[var(--color-text-muted)] italic">
+        "MUSANABANDI believes that every person has a story, every story deserves to be heard, and every ability has the power to contribute to society."
+      </div>
+    </section>
+
+    <!-- Vision & Mission Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      <div class="p-8 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] space-y-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-amber)]">Our Vision</span>
+        <h2 class="text-2xl font-bold text-[var(--color-text-primary)]">A Fully Inclusive Cultural Landscape</h2>
+        <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+          {FESTIVAL_INFO.vision}
+        </p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] space-y-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-indigo)]">Our Mission</span>
+        <h2 class="text-2xl font-bold text-[var(--color-text-primary)]">Empowerment Through Cinema</h2>
+        <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+          {FESTIVAL_INFO.mission}
+        </p>
+      </div>
+    </div>
+
+    <!-- The 8 Goals Summary -->
+    <section class="p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+      <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6 text-center">Our 8 Guiding Goals</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {FESTIVAL_GOALS.map(goal => (
+          <div class="flex items-start gap-3 p-3 rounded-xl bg-[var(--color-canvas)] border border-[var(--color-border-subtle)]">
+            <span class="text-xs font-bold text-[var(--color-accent-amber)] font-mono">0{goal.number}.</span>
+            <div>
+              <h3 class="text-xs font-bold text-[var(--color-text-primary)]">{goal.title}</h3>
+              <p class="text-[11px] text-[var(--color-text-secondary)] mt-0.5">{goal.summary}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,42 @@
+---
+import { FESTIVAL_GOALS } from '../../data/goals';
+import { FESTIVAL_INFO } from '../../data/festival';
+---
+<section class="py-20 bg-[var(--color-canvas-subtle)] border-b border-[var(--color-border-subtle)]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-amber)] mb-2">
+        Our Vision & Strategic Goals
+      </h2>
+      <p class="text-3xl sm:text-4xl font-extrabold text-[var(--color-text-primary)]">
+        8 Strategic Objectives for Inclusive Creative Arts
+      </p>
+      <p class="mt-3 text-sm text-[var(--color-text-secondary)]">
+        {FESTIVAL_INFO.overallGoal}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      {FESTIVAL_GOALS.map(goal => (
+        <div class="p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] flex flex-col justify-between hover:border-[var(--color-accent-amber)] transition-colors">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="w-8 h-8 rounded-lg bg-[var(--color-canvas)] border border-[var(--color-border)] flex items-center justify-center font-bold text-xs text-[var(--color-accent-amber)]">
+                0{goal.number}
+              </span>
+              <span class="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-[var(--color-border)]/50 text-[var(--color-text-secondary)]">
+                {goal.category}
+              </span>
+            </div>
+            <h3 class="text-base font-bold text-[var(--color-text-primary)] mb-2">
+              {goal.title}
+            </h3>
+            <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">
+              {goal.summary}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

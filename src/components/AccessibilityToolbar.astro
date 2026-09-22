@@ -1,0 +1,164 @@
+---
+// Floating Universal Accessibility Assistant
+---
+<aside aria-label="Accessibility Preferences" class="fixed bottom-6 right-6 z-40">
+  <button
+    id="a11y-toggle-btn"
+    type="button"
+    class="flex items-center gap-2 px-4 py-3 bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-accent-amber)] text-[var(--color-text-primary)] rounded-full shadow-2xl transition-all cursor-pointer"
+    aria-expanded="false"
+    aria-controls="a11y-panel"
+  >
+    <svg class="w-5 h-5 text-[var(--color-accent-amber)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <circle cx="12" cy="4" r="2" />
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 7v7m-4-4l4-2 4 2m-4 5v5m-3-1l3-4 3 4" />
+    </svg>
+    <span class="text-sm font-semibold">Accessibility</span>
+  </button>
+
+  <div
+    id="a11y-panel"
+    class="hidden absolute bottom-14 right-0 w-80 p-5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl shadow-2xl text-[var(--color-text-primary)]"
+  >
+    <div class="flex items-center justify-between pb-3 border-b border-[var(--color-border)]">
+      <h2 class="text-base font-bold">Assistive Preferences</h2>
+      <button id="a11y-close-btn" class="p-1 text-[var(--color-text-secondary)] hover:text-white" aria-label="Close panel">✕</button>
+    </div>
+
+    <!-- Contrast Mode -->
+    <div class="mt-4">
+      <label class="block text-xs font-semibold uppercase text-[var(--color-text-secondary)] mb-2">Contrast</label>
+      <div class="grid grid-cols-3 gap-2">
+        <button class="a11y-btn text-xs py-2 px-1 rounded bg-[var(--color-canvas)] border border-[var(--color-border)]" data-action="contrast" data-val="dark">Cinema</button>
+        <button class="a11y-btn text-xs py-2 px-1 rounded bg-black text-yellow-300 border border-yellow-300 font-bold" data-action="contrast" data-val="high">High</button>
+        <button class="a11y-btn text-xs py-2 px-1 rounded bg-slate-100 text-slate-900 border border-slate-300" data-action="contrast" data-val="light">Light</button>
+      </div>
+    </div>
+
+    <!-- Text Sizing -->
+    <div class="mt-4">
+      <label class="block text-xs font-semibold uppercase text-[var(--color-text-secondary)] mb-2">Text Scale</label>
+      <div class="grid grid-cols-3 gap-2">
+        <button class="a11y-btn text-xs py-2 rounded bg-[var(--color-canvas)] border border-[var(--color-border)]" data-action="size" data-val="normal">100%</button>
+        <button class="a11y-btn text-xs py-2 rounded bg-[var(--color-canvas)] border border-[var(--color-border)]" data-action="size" data-val="large">115%</button>
+        <button class="a11y-btn text-xs py-2 rounded bg-[var(--color-canvas)] border border-[var(--color-border)]" data-action="size" data-val="xlarge">130%</button>
+      </div>
+    </div>
+
+    <!-- Dyslexia Font & Reduced Motion -->
+    <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex flex-col gap-2">
+      <label class="flex items-center justify-between text-sm cursor-pointer">
+        <span>Dyslexia-friendly Font</span>
+        <input type="checkbox" id="toggle-dyslexia" class="w-4 h-4 accent-amber-500" />
+      </label>
+      <label class="flex items-center justify-between text-sm cursor-pointer">
+        <span>Reduce Animations</span>
+        <input type="checkbox" id="toggle-motion" class="w-4 h-4 accent-amber-500" />
+      </label>
+    </div>
+
+    <!-- Speech Intro -->
+    <div class="mt-4 pt-3 border-t border-[var(--color-border)]">
+      <button
+        id="audio-intro-btn"
+        type="button"
+        class="w-full py-2 px-3 text-xs flex items-center justify-center gap-2 bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] text-black font-semibold rounded-lg cursor-pointer transition-colors"
+      >
+        <span>🔊</span>
+        <span id="audio-btn-label">Listen to Festival Audio Overview</span>
+      </button>
+    </div>
+  </div>
+</aside>
+
+<script>
+  // Accessibility Engine
+  const root = document.documentElement;
+  const toggleBtn = document.getElementById('a11y-toggle-btn');
+  const panel = document.getElementById('a11y-panel');
+  const closeBtn = document.getElementById('a11y-close-btn');
+
+  toggleBtn?.addEventListener('click', () => {
+    const isHidden = panel?.classList.contains('hidden');
+    panel?.classList.toggle('hidden');
+    toggleBtn.setAttribute('aria-expanded', String(isHidden));
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    panel?.classList.add('hidden');
+    toggleBtn?.setAttribute('aria-expanded', 'false');
+  });
+
+  // Action buttons
+  document.querySelectorAll('.a11y-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const target = e.currentTarget as HTMLElement;
+      const action = target.dataset.action;
+      const val = target.dataset.val;
+
+      if (action === 'contrast') {
+        if (val === 'high') {
+          root.setAttribute('data-contrast', 'high');
+          root.removeAttribute('data-theme');
+        } else if (val === 'light') {
+          root.setAttribute('data-theme', 'light');
+          root.removeAttribute('data-contrast');
+        } else {
+          root.removeAttribute('data-contrast');
+          root.removeAttribute('data-theme');
+        }
+      }
+
+      if (action === 'size') {
+        if (val === 'normal') root.removeAttribute('data-text-size');
+        else root.setAttribute('data-text-size', val || 'large');
+      }
+    });
+  });
+
+  // Checkboxes
+  const dyslexiaCheck = document.getElementById('toggle-dyslexia') as HTMLInputElement | null;
+  dyslexiaCheck?.addEventListener('change', (e) => {
+    const checked = (e.target as HTMLInputElement).checked;
+    if (checked) root.setAttribute('data-font', 'dyslexic');
+    else root.removeAttribute('data-font');
+  });
+
+  const motionCheck = document.getElementById('toggle-motion') as HTMLInputElement | null;
+  motionCheck?.addEventListener('change', (e) => {
+    const checked = (e.target as HTMLInputElement).checked;
+    if (checked) root.setAttribute('data-motion', 'reduced');
+    else root.removeAttribute('data-motion');
+  });
+
+  // Web Speech API Voice Intro
+  const audioBtn = document.getElementById('audio-intro-btn');
+  const audioLabel = document.getElementById('audio-btn-label');
+  let isSpeaking = false;
+
+  audioBtn?.addEventListener('click', () => {
+    if (!('speechSynthesis' in window)) {
+      alert('Speech synthesis is not supported on this browser.');
+      return;
+    }
+
+    if (isSpeaking) {
+      window.speechSynthesis.cancel();
+      isSpeaking = false;
+      if (audioLabel) audioLabel.textContent = 'Listen to Festival Audio Overview';
+      return;
+    }
+
+    const text = "Welcome to Musanabandi Film Festival in Kigali, Rwanda. Stories Without Barriers. We are a disability-inclusive film festival celebrating dignity, inclusion, and creative ability.";
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 0.95;
+    utterance.onend = () => {
+      isSpeaking = false;
+      if (audioLabel) audioLabel.textContent = 'Listen to Festival Audio Overview';
+    };
+
+    window.speechSynthesis.speak(utterance);
+    isSpeaking = true;
+    if (audioLabel) audioLabel.textContent = 'Stop Audio Overview';
+  });
+</script>
