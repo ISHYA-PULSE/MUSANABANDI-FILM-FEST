@@ -1,9 +1,19 @@
 ---
 import { FESTIVAL_INFO } from '../../data/festival';
 ---
-<section class="relative overflow-hidden pt-12 pb-24 lg:pt-20 lg:pb-32 bg-radial from-[var(--color-surface)] to-[var(--color-canvas)] border-b border-[var(--color-border-subtle)]">
-  <!-- Subtle decorative ambient glow -->
-  <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 bg-[var(--color-accent-amber)]/10 blur-[120px] rounded-full pointer-events-none" aria-hidden="true"></div>
+<section class="relative overflow-hidden pt-12 pb-24 lg:pt-20 lg:pb-32 border-b border-[var(--color-border-subtle)]">
+  <!-- Atmospheric Cinematic Background Image with WCAG 7:1 Dark Scrim -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80&fm=webp"
+      alt=""
+      role="presentation"
+      class="w-full h-full object-cover opacity-20 filter blur-[2px] scale-105"
+      loading="eager"
+      decoding="async"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-canvas)]/90 via-[var(--color-canvas)]/95 to-[var(--color-canvas)]"></div>
+  </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
     <!-- Date & Location Badge -->
@@ -26,7 +36,7 @@ import { FESTIVAL_INFO } from '../../data/festival';
 
     <!-- Mission Abstract -->
     <p class="mt-6 text-base sm:text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto leading-relaxed">
-      A transformative disability-inclusive film festival in Rwanda using cinema to challenge stigma, celebrate authentic abilities, and empower disabled storytellers as industry leaders.
+      A transformative disability-inclusive film festival in Rwanda celebrating joyful stories, extraordinary abilities, and empowering young Black disabled storytellers as cultural leaders.
     </p>
 
     <!-- CTAs -->
@@ -51,16 +61,16 @@ import { FESTIVAL_INFO } from '../../data/festival';
       </a>
     </div>
 
-    <!-- Cinematic Visual Showcase Frame -->
+    <!-- Visible Foreground Showcase Image (Joyful Black Youth & Creatives) -->
     <div class="mt-12 relative max-w-4xl mx-auto rounded-3xl overflow-hidden border border-[var(--color-border)] shadow-2xl group">
       <img
-        src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&h=540&q=80&fm=webp"
-        alt="Cinematic 35mm film camera lens capturing motion in a studio"
+        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&h=540&q=80&fm=webp"
+        alt="Joyful young Black creators and youth smiling, laughing, and celebrating together at a creative gathering in Kigali"
         width="1200"
         height="540"
         loading="eager"
         decoding="async"
-        class="w-full h-64 sm:h-80 md:h-96 object-cover brightness-75 group-hover:scale-102 transition-transform duration-700"
+        class="w-full h-64 sm:h-80 md:h-96 object-cover brightness-90 group-hover:scale-102 transition-transform duration-700"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-canvas)] via-transparent to-transparent"></div>
       <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between text-left">
@@ -69,17 +79,17 @@ import { FESTIVAL_INFO } from '../../data/festival';
             Inaugural Edition
           </span>
           <p class="text-white font-bold text-sm sm:text-base mt-2 drop-shadow">
-            Kigali Cultural Village • Accessible Screenings & Masterclasses
+            Celebrating Rwandan Youth, Storytellers & Inclusive Cinema
           </p>
         </div>
         <span class="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white">
-          ♿ 🧏 💬 100% Accessible
+          ♿ 🧏 💬 100% Barrier-Free
         </span>
       </div>
     </div>
 
     <!-- Belief Banner -->
-    <div class="mt-10 p-4 rounded-2xl bg-[var(--color-canvas)]/80 border border-[var(--color-border)] max-w-3xl mx-auto text-sm text-[var(--color-text-secondary)] italic">
+    <div class="mt-10 p-4 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] max-w-3xl mx-auto text-sm text-[var(--color-text-secondary)] italic">
       "{FESTIVAL_INFO.belief}"
     </div>
   </div>

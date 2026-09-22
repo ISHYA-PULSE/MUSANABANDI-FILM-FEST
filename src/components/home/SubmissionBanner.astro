@@ -1,8 +1,21 @@
 ---
 import { SUBMISSION_DEADLINES } from '../../data/submissions';
 ---
-<section class="py-20 bg-[var(--color-surface)] border-b border-[var(--color-border-subtle)]">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="relative overflow-hidden py-20 bg-[var(--color-surface)] border-b border-[var(--color-border-subtle)]">
+  <!-- Atmospheric Screening Hall Backdrop with 90% Dark Scrim -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1600&q=80&fm=webp"
+      alt=""
+      role="presentation"
+      class="w-full h-full object-cover opacity-15 filter blur-[1px]"
+      loading="lazy"
+      decoding="async"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-surface)] via-[var(--color-surface)]/95 to-[var(--color-surface)]/85"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
       <!-- Left Info -->
       <div class="lg:col-span-7 space-y-5">
@@ -16,7 +29,7 @@ import { SUBMISSION_DEADLINES } from '../../data/submissions';
           Are you a filmmaker with a disability, or have you directed cinema that champions authentic disability inclusion? We invite feature films, documentaries, shorts, animations, and student work.
         </p>
 
-        <div class="p-4 rounded-xl bg-[var(--color-canvas)] border border-[var(--color-accent-amber)]/30 text-sm text-[var(--color-text-secondary)]">
+        <div class="p-4 rounded-xl bg-[var(--color-canvas)]/90 border border-[var(--color-accent-amber)]/30 text-sm text-[var(--color-text-secondary)]">
           <strong class="text-[var(--color-accent-amber)]">Accessibility Pledge:</strong> Submission fees are 100% waived for directors, writers, and lead producers who identify as persons with disabilities.
         </div>
 
@@ -29,7 +42,7 @@ import { SUBMISSION_DEADLINES } from '../../data/submissions';
           </a>
           <a
             href="/submit#categories"
-            class="px-6 py-3 rounded-xl font-semibold bg-[var(--color-surface)] hover:bg-[var(--color-surface-hover)] border border-[var(--color-border)] text-white transition-all"
+            class="px-6 py-3 rounded-xl font-semibold bg-[var(--color-canvas)] hover:bg-[var(--color-surface)] border border-[var(--color-border)] text-white transition-all"
           >
             View Categories
           </a>
@@ -37,7 +50,7 @@ import { SUBMISSION_DEADLINES } from '../../data/submissions';
       </div>
 
       <!-- Right Timeline Card -->
-      <div class="lg:col-span-5 bg-[var(--color-canvas)] p-6 rounded-2xl border border-[var(--color-border)]">
+      <div class="lg:col-span-5 bg-[var(--color-canvas)]/90 backdrop-blur-sm p-6 rounded-2xl border border-[var(--color-border)]">
         <h3 class="text-sm font-bold uppercase tracking-wider text-[var(--color-text-primary)] mb-4 pb-2 border-b border-[var(--color-border)]">
           Key Submission Deadlines
         </h3>
