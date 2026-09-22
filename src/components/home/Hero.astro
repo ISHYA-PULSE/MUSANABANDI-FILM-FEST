@@ -51,8 +51,35 @@ import { FESTIVAL_INFO } from '../../data/festival';
       </a>
     </div>
 
+    <!-- Cinematic Visual Showcase Frame -->
+    <div class="mt-12 relative max-w-4xl mx-auto rounded-3xl overflow-hidden border border-[var(--color-border)] shadow-2xl group">
+      <img
+        src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&h=540&q=80&fm=webp"
+        alt="Cinematic 35mm film camera lens capturing motion in a studio"
+        width="1200"
+        height="540"
+        loading="eager"
+        decoding="async"
+        class="w-full h-64 sm:h-80 md:h-96 object-cover brightness-75 group-hover:scale-102 transition-transform duration-700"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-canvas)] via-transparent to-transparent"></div>
+      <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between text-left">
+        <div>
+          <span class="px-2.5 py-1 rounded bg-[var(--color-accent-amber)] text-black font-bold text-xs uppercase tracking-wider">
+            Inaugural Edition
+          </span>
+          <p class="text-white font-bold text-sm sm:text-base mt-2 drop-shadow">
+            Kigali Cultural Village • Accessible Screenings & Masterclasses
+          </p>
+        </div>
+        <span class="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white">
+          ♿ 🧏 💬 100% Accessible
+        </span>
+      </div>
+    </div>
+
     <!-- Belief Banner -->
-    <div class="mt-16 p-4 rounded-2xl bg-[var(--color-canvas)]/80 border border-[var(--color-border)] max-w-3xl mx-auto text-sm text-[var(--color-text-secondary)] italic">
+    <div class="mt-10 p-4 rounded-2xl bg-[var(--color-canvas)]/80 border border-[var(--color-border)] max-w-3xl mx-auto text-sm text-[var(--color-text-secondary)] italic">
       "{FESTIVAL_INFO.belief}"
     </div>
   </div>

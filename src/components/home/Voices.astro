@@ -1,0 +1,52 @@
+---
+import { TESTIMONIALS } from '../../data/testimonials';
+---
+<section class="py-20 bg-[var(--color-surface)] border-b border-[var(--color-border-subtle)]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-amber)] mb-2">
+        Amajwi y'Abahanzi • Community Voices
+      </h2>
+      <p class="text-3xl sm:text-4xl font-extrabold text-[var(--color-text-primary)]">
+        Voices Without Barriers
+      </p>
+      <p class="mt-3 text-sm text-[var(--color-text-secondary)]">
+        Hear directly from the filmmakers, actors, and advocates transforming Rwanda's creative landscape.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {TESTIMONIALS.map(item => (
+        <figure class="p-8 rounded-3xl bg-[var(--color-canvas)] border border-[var(--color-border)] hover:border-[var(--color-accent-amber)] transition-all flex flex-col justify-between">
+          <blockquote class="text-sm text-[var(--color-text-secondary)] leading-relaxed italic mb-8 relative">
+            <span class="text-3xl text-[var(--color-accent-amber)] font-serif absolute -top-4 -left-2 select-none opacity-40">“</span>
+            <p class="relative z-10 pl-3">{item.quote}</p>
+          </blockquote>
+
+          <figcaption class="flex items-center gap-4 pt-4 border-t border-[var(--color-border-subtle)]">
+            <img
+              src={item.image}
+              alt={item.imageAlt}
+              width="52"
+              height="52"
+              loading="lazy"
+              decoding="async"
+              class="w-13 h-13 rounded-full object-cover border-2 border-[var(--color-accent-amber)] shrink-0"
+            />
+            <div>
+              <cite class="not-italic font-bold text-sm text-[var(--color-text-primary)] block">
+                {item.name}
+              </cite>
+              <span class="text-xs text-[var(--color-accent-amber)] block leading-tight">
+                {item.role}
+              </span>
+              <span class="text-[11px] text-[var(--color-text-muted)] block mt-0.5">
+                {item.affiliation}
+              </span>
+            </div>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
