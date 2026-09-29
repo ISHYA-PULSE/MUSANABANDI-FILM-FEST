@@ -5,29 +5,81 @@
   --font-body: 'Inter', system-ui, sans-serif;
   --font-dyslexic: 'Atkinson Hyperlegible', sans-serif;
 
-  /* 60-30-10 Color Hierarchy */
-  --color-canvas: #0B0E14;
-  --color-canvas-subtle: #10141D;
-  --color-surface: #151B27;
-  --color-surface-hover: #1E2638;
-  --color-border: #232D42;
-  --color-border-subtle: #1C2436;
+  /* 60-30-10 Color Hierarchy from inclusivecolors.com Style Dictionary */
+  /* Base Canvas: gray-950 and gray-900 */
+  --color-canvas: #111213;
+  --color-canvas-subtle: #282b2c;
+  --color-surface: #1a1c1d;
+  --color-surface-hover: #282b2c;
+  --color-border: #424546;
+  --color-border-subtle: #282b2c;
 
-  /* Typography Colors */
-  --color-text-primary: #F8FAFC;
-  --color-text-secondary: #94A3B8;
-  --color-text-muted: #64748B;
+  /* Typography Colors: gray-50, gray-300, gray-500 */
+  --color-text-primary: #f7f7f8;
+  --color-text-secondary: #ced0d3;
+  --color-text-muted: #94999e;
 
-  /* 10% Action & Empowerment Accents */
-  --color-accent-amber: #F59E0B;
-  --color-accent-amber-hover: #D97706;
-  --color-accent-amber-glow: rgba(245, 158, 11, 0.15);
+  /* Primary Action & High-Visibility Accent: Blue 500 / 600 */
+  --color-accent-amber: #6199f0;
+  --color-accent-amber-hover: #317edb;
+  --color-accent-amber-glow: rgba(97, 153, 240, 0.20);
   
-  --color-accent-indigo: #6366F1;
-  --color-accent-indigo-hover: #4F46E5;
-  --color-accent-indigo-glow: rgba(99, 102, 241, 0.15);
+  /* Secondary Accent: Green 500 / 600 */
+  --color-accent-indigo: #72a65f;
+  --color-accent-indigo-hover: #528c32;
+  --color-accent-indigo-glow: rgba(114, 166, 95, 0.20);
 
-  --color-accent-terracotta: #E0533C;
+  /* Alert / Warm Accent: Red 600 */
+  --color-accent-terracotta: #e44239;
+
+  /* Raw Inclusive Color System */
+  --color-gray-50: #f7f7f8;
+  --color-gray-100: #edeeef;
+  --color-gray-200: #dadcdf;
+  --color-gray-300: #ced0d3;
+  --color-gray-400: #b2b6bb;
+  --color-gray-500: #94999e;
+  --color-gray-600: #7a7e82;
+  --color-gray-700: #5d6164;
+  --color-gray-800: #424546;
+  --color-gray-900: #282b2c;
+  --color-gray-950: #111213;
+
+  --color-blue-50: #f6f7fb;
+  --color-blue-100: #ebeef8;
+  --color-blue-200: #d3dcf1;
+  --color-blue-300: #c3d0f1;
+  --color-blue-400: #9ab6ee;
+  --color-blue-500: #6199f0;
+  --color-blue-600: #317edb;
+  --color-blue-700: #2361a9;
+  --color-blue-800: #0f457b;
+  --color-blue-900: #052b50;
+  --color-blue-950: #001228;
+
+  --color-green-50: #f4f9f3;
+  --color-green-100: #e4f2e3;
+  --color-green-200: #c4e5c0;
+  --color-green-300: #afdca8;
+  --color-green-400: #8ec47f;
+  --color-green-500: #72a65f;
+  --color-green-600: #528c32;
+  --color-green-700: #396d09;
+  --color-green-800: #294d03;
+  --color-green-900: #71bc10;
+  --color-green-950: #091500;
+
+  --color-red-50: #faf7f7;
+  --color-red-100: #f8ebeb;
+  --color-red-200: #f7d4d1;
+  --color-red-300: #f4c5c2;
+  --color-red-400: #efa29f;
+  --color-red-500: #ea7671;
+  --color-red-600: #e44239;
+  --color-red-700: #b2302b;
+  --color-red-800: #861916;
+  --color-red-900: #5b0505;
+  --color-red-950: #2e0001;
 }
 
 /* Accessibility: High Contrast Mode */
@@ -46,19 +98,20 @@
   --color-accent-indigo: #00FFFF !important;
 }
 
-/* Accessibility: Clean Light Mode */
+/* Accessibility: Clean Light Mode with Inclusive Palette */
 [data-theme="light"] {
-  --color-canvas: #F8FAFC !important;
-  --color-canvas-subtle: #F1F5F9 !important;
-  --color-surface: #FFFFFF !important;
-  --color-surface-hover: #F8FAFC !important;
-  --color-border: #CBD5E1 !important;
-  --color-border-subtle: #E2E8F0 !important;
-  --color-text-primary: #0F172A !important;
-  --color-text-secondary: #334155 !important;
-  --color-text-muted: #64748B !important;
-  --color-accent-amber: #D97706 !important;
-  --color-accent-indigo: #4F46E5 !important;
+  --color-canvas: #f7f7f8 !important;
+  --color-canvas-subtle: #edeeef !important;
+  --color-surface: #ffffff !important;
+  --color-surface-hover: #f7f7f8 !important;
+  --color-border: #dadcdf !important;
+  --color-border-subtle: #edeeef !important;
+  --color-text-primary: #111213 !important;
+  --color-text-secondary: #424546 !important;
+  --color-text-muted: #7a7e82 !important;
+  --color-accent-amber: #2361a9 !important;
+  --color-accent-amber-hover: #0f457b !important;
+  --color-accent-indigo: #396d09 !important;
 }
 
 /* Accessibility: Font Resizing */
