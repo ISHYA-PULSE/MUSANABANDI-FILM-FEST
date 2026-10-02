@@ -1,80 +1,195 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { FESTIVAL_INFO } from '../data/festival';
-import { SUBMISSION_CATEGORIES, SUBMISSION_DEADLINES, SUBMISSION_REQUIREMENTS } from '../data/submissions';
+import { SUBMISSION_TRACKS, FILM_CATEGORIES, SUBMISSION_DEADLINES, SUBMISSION_REQUIREMENTS } from '../data/submissions';
 ---
 
 <BaseLayout
-  title={`Submit Your Film | ${FESTIVAL_INFO.name}`}
-  description="Call for Entries: Submit your disability-inclusive films, documentaries, shorts, and animations to MUSANABANDI 2026."
+  title={`Open Calls & Applications | ${FESTIVAL_INFO.name}`}
+  description="Apply for MUSANABANDI 2026: 1. Film Submission (Short, Feature, Documentary), 2. Exhibition Application, and 3. Photography Workshop."
 >
   <div class="py-16 md:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
     <header class="text-center max-w-3xl mx-auto mb-16">
       <span class="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-amber)] mb-2 block">
-        Call for Entries • 2026 Edition
+        Official Open Calls • 2026 Edition
       </span>
       <h1 class="text-4xl sm:text-5xl font-extrabold text-[var(--color-text-primary)]">
-        Share Your Story Without Barriers
+        3 Pathways to Participate
       </h1>
       <p class="mt-4 text-base text-[var(--color-text-secondary)]">
-        Submissions are open for fiction, documentary, animation, and student films centering disability representation on screen and behind the lens.
+        Whether you are a filmmaker, a visual artist, or an aspiring photographer with a disability, MUSANABANDI 2026 welcomes your creative voice.
       </p>
+      
+      <!-- Deadline Pill -->
+      <div class="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-950/80 border border-red-800/80 text-red-200 text-xs font-bold">
+        <span>⏰</span> Final Application Deadline: November 20, 2026 • Festival: Dec 15–17, 2026 (Kigali)
+      </div>
     </header>
 
-    <!-- Fee Waiver Highlight -->
-    <div class="mb-12 p-6 rounded-2xl bg-[var(--color-surface)] border-2 border-[var(--color-accent-amber)] flex flex-col md:flex-row items-center justify-between gap-6">
-      <div>
-        <h2 class="text-lg font-bold text-[var(--color-text-primary)]">100% Submission Fee Waiver for Creators with Disabilities</h2>
-        <p class="text-xs text-[var(--color-text-secondary)] mt-1">
-          Financial barriers must never obstruct creative participation. All disabled filmmakers submit for free.
-        </p>
-      </div>
-      <a
-        href="mailto:submissions@musanabandifilmfest.rw?subject=Fee%20Waiver%20Inquiry%20MUSANABANDI"
-        class="shrink-0 px-5 py-2.5 rounded-xl font-bold text-xs bg-[var(--color-accent-amber)] text-black hover:bg-[var(--color-accent-amber-hover)] transition-all"
-      >
-        Request Waiver Code
-      </a>
-    </div>
+    <!-- 3 Tracks Master Grid -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6 text-center">
+        Select Your Participation Track
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {SUBMISSION_TRACKS.map(track => (
+          <div class="p-6 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-accent-amber)] transition-all flex flex-col justify-between group">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-2xl">{track.icon}</span>
+                <span class="text-xs font-mono font-bold text-[var(--color-accent-amber)] px-2.5 py-1 rounded-full bg-[var(--color-canvas)] border border-[var(--color-border-subtle)]">
+                  Track {track.number}
+                </span>
+              </div>
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-[var(--color-accent-indigo)] block">
+                  {track.badge}
+                </span>
+                <h3 class="text-xl font-bold text-[var(--color-text-primary)] mt-1 group-hover:text-[var(--color-accent-amber)] transition-colors">
+                  {track.title}
+                </h3>
+                <span class="text-xs text-[var(--color-text-muted)] italic block mt-0.5">
+                  ({track.kinyarwandaTitle})
+                </span>
+              </div>
+              <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">
+                {track.description}
+              </p>
+            </div>
 
-    <!-- Categories Grid -->
-    <section id="categories" class="mb-16">
-      <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6">Competitive Categories</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {SUBMISSION_CATEGORIES.map(cat => (
-          <div class="p-6 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)]">
-            <h3 class="text-lg font-bold text-[var(--color-accent-amber)]">{cat.title}</h3>
-            <span class="text-xs font-mono text-[var(--color-text-muted)] block mt-0.5 mb-3">{cat.runtime}</span>
-            <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed mb-4">{cat.description}</p>
-            <div class="pt-3 border-t border-[var(--color-border-subtle)] text-[11px] text-[var(--color-text-muted)]">
-              <strong>Eligibility:</strong> {cat.eligibility}
+            <div class="pt-6 mt-6 border-t border-[var(--color-border-subtle)]">
+              <a
+                href={track.actionHref}
+                class="block w-full py-2.5 text-center rounded-xl font-bold text-xs bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] text-black shadow transition-all"
+              >
+                {track.actionLabel} →
+              </a>
             </div>
           </div>
         ))}
       </div>
     </section>
 
-    <!-- Submission Guidelines -->
-    <section class="p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)]">
-      <h2 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">Submission Requirements</h2>
-      <ul class="space-y-3 mb-8">
-        {SUBMISSION_REQUIREMENTS.map(req => (
-          <li class="flex items-start gap-3 text-xs text-[var(--color-text-secondary)]">
-            <span class="text-[var(--color-accent-amber)]">✔</span>
-            <span>{req}</span>
-          </li>
-        ))}
-      </ul>
+    <!-- Fee Waiver Highlight -->
+    <div class="mb-16 p-6 rounded-3xl bg-[var(--color-surface)] border-2 border-[var(--color-accent-amber)] flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <div class="inline-block px-2.5 py-0.5 rounded bg-[var(--color-accent-amber)] text-black font-bold text-[10px] uppercase mb-2">
+          Barrier-Free Participation
+        </div>
+        <h2 class="text-lg font-bold text-[var(--color-text-primary)]">100% Application & Entry Fee Waiver for PWDs</h2>
+        <p class="text-xs text-[var(--color-text-secondary)] mt-1 max-w-xl">
+          Financial barriers must never obstruct creative participation. All disabled filmmakers, visual artists, and workshop candidates participate 100% free of charge.
+        </p>
+      </div>
+      <a
+        href={`mailto:${FESTIVAL_INFO.email}?subject=Fee%20Waiver%20Inquiry%20MUSANABANDI%202026`}
+        class="shrink-0 px-5 py-3 rounded-xl font-extrabold text-xs bg-[var(--color-accent-amber)] text-black hover:bg-[var(--color-accent-amber-hover)] transition-all shadow-md"
+      >
+        Request Assistance / Waiver
+      </a>
+    </div>
 
-      <div class="text-center pt-4">
+    <!-- Track 1: Film Categories Section -->
+    <section id="film-categories" class="mb-16 p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-accent-amber)]">Track 01 • Film Competition</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-[var(--color-text-primary)] mt-1">Film Submission Categories</h2>
+        <p class="text-xs text-[var(--color-text-secondary)] mt-1">Accepting submissions across 3 main cinematic forms:</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        {FILM_CATEGORIES.map(cat => (
+          <div class="p-5 rounded-2xl bg-[var(--color-canvas)] border border-[var(--color-border-subtle)] space-y-2">
+            <h3 class="text-base font-bold text-[var(--color-accent-amber)]">{cat.title}</h3>
+            <span class="text-xs text-[var(--color-text-muted)] italic block">{cat.kinyarwanda}</span>
+            <span class="text-xs font-mono text-[var(--color-accent-indigo)] block">{cat.runtime}</span>
+            <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed pt-2">{cat.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center pt-4 border-t border-[var(--color-border-subtle)]">
         <a
           href="https://filmfreeway.com"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-bold bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] text-black shadow-lg"
+          class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-extrabold bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] text-black shadow-lg transition-all"
         >
-          <span>🎬</span> Submit via FilmFreeway
+          <span>🎬</span> Submit Film on FilmFreeway
         </a>
+      </div>
+    </section>
+
+    <!-- Track 2: Exhibition Application Section -->
+    <section id="exhibition" class="mb-16 p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-8 space-y-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-accent-indigo)]">Track 02 • Visual Arts & Stalls</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[var(--color-text-primary)]">Apply for Exhibition Booth</h2>
+          <p class="text-xs sm:text-sm text-[var(--color-text-secondary)] leading-relaxed">
+            Are you a painter, sculptor, ceramicist, photographer, or craftsman with a disability in Rwanda? Showcase and sell your creations during the 3 festival days (Dec 15–17, 2026) at our central Kigali exhibition gallery.
+          </p>
+          <ul class="text-xs text-[var(--color-text-secondary)] space-y-2 pt-1">
+            <li class="flex items-center gap-2"><span>✔</span> Free exhibition booth provided</li>
+            <li class="flex items-center gap-2"><span>✔</span> Direct interaction with cultural attendees & buyers</li>
+            <li class="flex items-center gap-2"><span>✔</span> Accessible setup assistance supported by festival volunteers</li>
+          </ul>
+        </div>
+        <div class="md:col-span-4 text-center">
+          <a
+            href={`mailto:${FESTIVAL_INFO.email}?subject=Exhibition%20Application%20MUSANABANDI%202026`}
+            class="inline-block w-full px-6 py-3.5 rounded-xl font-bold text-xs bg-[var(--color-accent-indigo)] hover:bg-[var(--color-accent-indigo-hover)] text-white shadow-md transition-all"
+          >
+            Apply for Exhibition Space
+          </a>
+          <span class="text-[11px] text-[var(--color-text-muted)] block mt-2">Deadline: 20 November 2026</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Track 3: Photography Workshop Section -->
+    <section id="workshop" class="mb-16 p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-8 space-y-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-accent-amber)]">Track 03 • Youth Capacity Building</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[var(--color-text-primary)]">Photography & Visual Storytelling Workshop</h2>
+          <p class="text-xs sm:text-sm text-[var(--color-text-secondary)] leading-relaxed">
+            A practical, fully inclusive 3-day photography training lab led by industry mentors. Participants learn camera handling, adaptive shooting techniques, lighting, and digital post-production.
+          </p>
+          <ul class="text-xs text-[var(--color-text-secondary)] space-y-2 pt-1">
+            <li class="flex items-center gap-2"><span>✔</span> Tailored for Rwandan youth with disabilities</li>
+            <li class="flex items-center gap-2"><span>✔</span> Cameras & equipment provided on-site</li>
+            <li class="flex items-center gap-2"><span>✔</span> Certificate of completion and mentorship pathways</li>
+          </ul>
+        </div>
+        <div class="md:col-span-4 text-center">
+          <a
+            href={`mailto:${FESTIVAL_INFO.email}?subject=Photography%20Workshop%20Registration%20MUSANABANDI%202026`}
+            class="inline-block w-full px-6 py-3.5 rounded-xl font-extrabold text-xs bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] text-black shadow-md transition-all"
+          >
+            Register for Workshop
+          </a>
+          <span class="text-[11px] text-[var(--color-text-muted)] block mt-2">Limited spots • Deadline: 20 Nov 2026</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deadlines Timeline -->
+    <section class="p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+      <h2 class="text-xl font-bold text-[var(--color-text-primary)] mb-6 text-center">Official Festival Timeline</h2>
+      <div class="max-w-2xl mx-auto space-y-4">
+        {SUBMISSION_DEADLINES.map(d => (
+          <div class="flex items-center justify-between p-4 rounded-xl bg-[var(--color-canvas)] border border-[var(--color-border-subtle)]">
+            <div>
+              <span class="font-bold text-sm text-[var(--color-text-primary)] block">{d.stage}</span>
+              <span class="text-xs text-[var(--color-accent-amber)]">{d.fee}</span>
+            </div>
+            <span class="text-xs font-mono font-semibold px-3 py-1 rounded bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)]">
+              {d.date}
+            </span>
+          </div>
+        ))}
       </div>
     </section>
   </div>

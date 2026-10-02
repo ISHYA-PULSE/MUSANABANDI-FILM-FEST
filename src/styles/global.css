@@ -5,29 +5,29 @@
   --font-body: 'Inter', system-ui, sans-serif;
   --font-dyslexic: 'Atkinson Hyperlegible', sans-serif;
 
-  /* 60-30-10 Color Hierarchy from inclusivecolors.com Style Dictionary */
-  /* Base Canvas: gray-950 and gray-900 */
+  /* 60-30-10 Color Hierarchy: Official Brand Palette (Option 1: Cinema Gold & Rwandan Green) */
+  /* Base Canvas: Slate Black / Charcoal */
   --color-canvas: #111213;
-  --color-canvas-subtle: #282b2c;
-  --color-surface: #1a1c1d;
-  --color-surface-hover: #282b2c;
-  --color-border: #424546;
-  --color-border-subtle: #282b2c;
+  --color-canvas-subtle: #191b1d;
+  --color-surface: #202327;
+  --color-surface-hover: #2b2f34;
+  --color-border: #383d44;
+  --color-border-subtle: #25282d;
 
-  /* Typography Colors: gray-50, gray-300, gray-500 */
+  /* Typography Colors: High Contrast Crisp Neutral */
   --color-text-primary: #f7f7f8;
   --color-text-secondary: #ced0d3;
   --color-text-muted: #94999e;
 
-  /* Primary Action & High-Visibility Accent: Blue 500 / 600 */
-  --color-accent-amber: #6199f0;
-  --color-accent-amber-hover: #317edb;
-  --color-accent-amber-glow: rgba(97, 153, 240, 0.20);
+  /* 10% Primary Action: Official Logo Gold #FFD100 */
+  --color-accent-amber: #ffd100;
+  --color-accent-amber-hover: #e5bc00;
+  --color-accent-amber-glow: rgba(255, 209, 0, 0.20);
   
-  /* Secondary Accent: Green 500 / 600 */
-  --color-accent-indigo: #72a65f;
-  --color-accent-indigo-hover: #528c32;
-  --color-accent-indigo-glow: rgba(114, 166, 95, 0.20);
+  /* Secondary Accent: Rwandan Emerald Green #0A9C4C */
+  --color-accent-indigo: #0a9c4c;
+  --color-accent-indigo-hover: #088a43;
+  --color-accent-indigo-glow: rgba(10, 156, 76, 0.20);
 
   /* Alert / Warm Accent: Red 600 */
   --color-accent-terracotta: #e44239;

@@ -1,9 +1,21 @@
-export interface SubmissionCategory {
+export interface SubmissionTrack {
+  id: string;
+  number: string;
+  title: string;
+  kinyarwandaTitle: string;
+  badge: string;
+  description: string;
+  actionLabel: string;
+  actionHref: string;
+  icon: string;
+}
+
+export interface FilmCategory {
   id: string;
   title: string;
+  kinyarwanda: string;
   runtime: string;
   description: string;
-  eligibility: string;
 }
 
 export interface DeadlineItem {
@@ -13,47 +25,77 @@ export interface DeadlineItem {
   status: "active" | "upcoming" | "closed";
 }
 
-export const SUBMISSION_CATEGORIES: SubmissionCategory[] = [
+export const SUBMISSION_TRACKS: SubmissionTrack[] = [
   {
-    id: "documentary",
-    title: "Documentary Feature & Short",
-    runtime: "Shorts: < 40 mins | Features: > 40 mins",
-    description: "Compelling non-fiction illuminating disability rights, cultural realities, resilience, and personal triumphs.",
-    eligibility: "Produced or directed by, or deeply centering persons with disabilities."
+    id: "films",
+    number: "01",
+    title: "Submit Your Film",
+    kinyarwandaTitle: "Ohereza Filime Yawe",
+    badge: "Cinema Competition",
+    description: "Accepting Short Films, Feature Films, and Documentary Films championing authentic disability representation and creative agency.",
+    actionLabel: "Submit Film Entries",
+    actionHref: "/submit#film-categories",
+    icon: "🎬"
   },
   {
-    id: "narrative",
-    title: "Narrative Fiction",
-    runtime: "Shorts: < 30 mins | Features: > 60 mins",
-    description: "Creative storytelling spanning drama, comedy, sci-fi, or romance with authentic disability representation.",
-    eligibility: "Key cast or creative department lead must identify as a person with a disability."
+    id: "exhibition",
+    number: "02",
+    title: "Apply for Exhibition",
+    kinyarwandaTitle: "Saba Kumurika Ibikorwa",
+    badge: "Visual & Cultural Arts",
+    description: "A premier physical showcase for disabled visual artists, painters, sculptors, and multimedia exhibitors during the 3 festival days.",
+    actionLabel: "Apply for Exhibition Booth",
+    actionHref: "/submit#exhibition",
+    icon: "🎨"
   },
   {
-    id: "animation",
-    title: "Animation & Experimental",
-    runtime: "Up to 25 mins",
-    description: "Visual artworks, 2D/3D animation, stop-motion, and avant-garde cinematic expressions.",
-    eligibility: "Open to international and Rwandan creators exploring themes of perception and ability."
+    id: "photography-workshop",
+    number: "03",
+    title: "Participate in Photography Workshop",
+    kinyarwandaTitle: "Amahugurwa yo Gufotora",
+    badge: "Capacity Building Lab",
+    description: "Hands-on masterclass empowering Rwandan youth with disabilities with adaptive cameras, visual composition, and digital storytelling skills.",
+    actionLabel: "Register for Workshop",
+    actionHref: "/submit#workshop",
+    icon: "📷"
+  }
+];
+
+export const FILM_CATEGORIES: FilmCategory[] = [
+  {
+    id: "short-film",
+    title: "Short Film",
+    kinyarwanda: "Filime Ngufi",
+    runtime: "Up to 40 minutes",
+    description: "Narrative fiction, live-action drama, comedy, and experimental shorts with authentic disability representation on or behind the camera."
   },
   {
-    id: "rwandan-emerging",
-    title: "Rwandan Emerging Filmmakers",
-    runtime: "Under 20 mins",
-    description: "Dedicated competitive strand for first- and second-time Rwandan creators with disabilities.",
-    eligibility: "Exclusively for Rwandan nationals or residents."
+    id: "feature-film",
+    title: "Feature Film",
+    kinyarwanda: "Filime Ndende",
+    runtime: "Over 40 minutes",
+    description: "Full-length cinematic fiction exploring deep character journeys, human dignity, romance, and societal transformation."
+  },
+  {
+    id: "documentary-film",
+    title: "Documentary Film",
+    kinyarwanda: "Filime Mbarankuru",
+    runtime: "Short & Feature Length",
+    description: "Compelling non-fiction illuminating disability rights, cultural realities, everyday triumphs, and lived experiences in Rwanda and beyond."
   }
 ];
 
 export const SUBMISSION_DEADLINES: DeadlineItem[] = [
-  { stage: "Early Bird Deadline", date: "May 30, 2026", fee: "Free / Waived", status: "active" },
-  { stage: "Regular Deadline", date: "July 31, 2026", fee: "Free for PWDs", status: "upcoming" },
-  { stage: "Late Deadline", date: "September 15, 2026", fee: "Free for PWDs", status: "upcoming" },
-  { stage: "Official Selection Announced", date: "October 10, 2026", fee: "N/A", status: "upcoming" }
+  { stage: "Call for Applications Opens", date: "October 1, 2026", fee: "Free / Open", status: "active" },
+  { stage: "Final Application Deadline (All 3 Tracks)", date: "November 20, 2026", fee: "100% Waived for PWDs", status: "active" },
+  { stage: "Official Selection & Invites Announcement", date: "December 1, 2026", fee: "N/A", status: "upcoming" },
+  { stage: "MUSANABANDI Festival Dates", date: "December 15 – 17, 2026", fee: "Kigali, Rwanda", status: "upcoming" }
 ];
 
 export const SUBMISSION_REQUIREMENTS = [
-  "All entries must include English or French subtitles/closed captions.",
-  "Descriptive audio tracks and Rwandan Sign Language (RSL) versions are enthusiastically welcomed.",
-  "Films completed after January 1, 2024 are eligible.",
-  "Submission fees are 100% waived for creators who identify as persons with disabilities."
+  "All film submissions must include English or French subtitles/closed captions.",
+  "Rwandan Sign Language (RSL) and Audio Description tracks are enthusiastically supported.",
+  "Exhibition pieces must be ready for safe physical mounting at Kigali Cultural Village.",
+  "Workshop applicants must be Rwandan youth interested in visual arts and disability advocacy.",
+  "Submission and workshop fees are 100% waived for creators with disabilities."
 ];

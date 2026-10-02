@@ -22,7 +22,7 @@ export const FESTIVAL_INFO: FestivalMeta = {
   tagline: "Stories Without Barriers",
   pillars: ["Film", "Inclusion", "Dignity", "Ability"],
   edition: "Inaugural Edition 2026",
-  dates: "November 19 – 22, 2026",
+  dates: "December 15 – 17, 2026",
   venue: "Kigali Cultural Village & Select Screen Hubs",
   city: "Kigali",
   country: "Rwanda",

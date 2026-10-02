@@ -12,14 +12,18 @@ const { currentPath = '/' } = Astro.props;
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
     <!-- Brand Logo -->
     <a href="/" class="flex items-center gap-3 group focus:outline-none" aria-label="MUSANABANDI Film Festival Home">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-accent-amber)] to-[var(--color-accent-terracotta)] flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-        <span class="text-black font-extrabold text-xl tracking-tighter">M</span>
-      </div>
+      <img
+        src="/images/brand/logo-gold-charcoal.jpg"
+        alt="MUSANABANDI Film Festival Logo"
+        width="44"
+        height="44"
+        class="w-11 h-11 rounded-xl object-contain border border-[var(--color-border)] shadow-md group-hover:scale-105 transition-transform"
+      />
       <div>
-        <span class="text-lg font-bold tracking-tight text-[var(--color-text-primary)] block leading-tight group-hover:text-[var(--color-accent-amber)] transition-colors">
+        <span class="text-base sm:text-lg font-extrabold tracking-tight text-[var(--color-text-primary)] block leading-tight group-hover:text-[var(--color-accent-amber)] transition-colors">
           MUSANABANDI
         </span>
-        <span class="text-xs text-[var(--color-text-secondary)] tracking-widest uppercase font-medium">
+        <span class="text-[10px] sm:text-xs text-[var(--color-text-secondary)] tracking-widest uppercase font-medium block">
           Film Festival • Rwanda
         </span>
       </div>
@@ -54,9 +58,9 @@ const { currentPath = '/' } = Astro.props;
     <div class="hidden lg:flex items-center gap-3">
       <a
         href="/submit"
-        class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-lg bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] text-black shadow-md hover:shadow-amber-500/20 transition-all cursor-pointer"
+        class="inline-flex items-center justify-center px-4 py-2 text-sm font-bold rounded-lg bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] text-black shadow-md hover:shadow-yellow-500/20 transition-all cursor-pointer"
       >
-        Submit Your Film
+        Submit & Apply
       </a>
     </div>
 
