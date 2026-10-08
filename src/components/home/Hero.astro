@@ -1,94 +1,221 @@
 ---
 import { FESTIVAL_INFO } from '../../data/festival';
+
+const HERO_SLIDES = [
+  {
+    src: '/images/hero-filmmaking-joy.jpg',
+    alt: 'Joyful young Rwandan creators and students with disabilities operating a cinema camera monitor together in Kigali',
+    caption: 'Kigali Inclusive Cinema Lab • Hands-on Filmmaking'
+  },
+  {
+    src: '/images/about-joyful-audience.jpg',
+    alt: 'Radiant smiling Rwandan women and youth advocates laughing together at an inclusive arts gathering',
+    caption: 'Stories Without Barriers • Shared Humanity & Kinship'
+  },
+  {
+    src: '/images/voices-speaker-dignity.jpg',
+    alt: 'Smiling advocate with microphone in Dare to Dream shirt with traditional Rwandan Imigongo backdrop',
+    caption: 'Empowerment & Cultural Leadership • Kigali'
+  },
+  {
+    src: '/images/creative-outdoor-workshop.jpg',
+    alt: 'Young Rwandan creators actively collaborating during an outdoor cinema workshop in Kigali',
+    caption: 'Adaptive Workshops • Lighting & Directing'
+  },
+  {
+    src: '/images/crowd-celebration.jpg',
+    alt: 'Cheering Rwandan youth crowd celebrating creative achievements in Kigali',
+    caption: 'Inaugural Festival Edition • 15–17 December 2026'
+  }
+];
 ---
 
-<section class="relative overflow-hidden py-12 lg:py-16 border-b border-[var(--color-border-subtle)] bg-[var(--color-canvas)]">
-  <!-- Subtle Background Scrim Glow -->
-  <div class="absolute top-0 right-1/4 w-96 h-96 bg-[var(--color-accent-amber-glow)] rounded-full blur-3xl pointer-events-none -z-10"></div>
-  <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-[var(--color-accent-indigo-glow)] rounded-full blur-3xl pointer-events-none -z-10"></div>
+<section class="relative overflow-hidden min-h-[560px] lg:min-h-[640px] flex items-center border-b border-[var(--color-border-subtle)] bg-[var(--color-canvas)] group" id="hero-slider" aria-label="Featured Festival Highlights">
+  
+  <!-- Slideshow Image Layers -->
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    {HERO_SLIDES.map((slide, index) => (
+      <div
+        class={`hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+        data-index={index}
+      >
+        <img
+          src={slide.src}
+          alt={slide.alt}
+          width="1600"
+          height="800"
+          loading={index === 0 ? 'eager' : 'lazy'}
+          decoding="async"
+          class="w-full h-full object-cover object-center filter brightness-95"
+        />
+      </div>
+    ))}
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+    <!-- Dynamic Cinema Gradient Scrim (Heavy dark on left for text readability, subtle on right for photo vibrancy) -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-canvas)] via-[var(--color-canvas)]/85 to-[var(--color-canvas)]/40 z-20 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-canvas)] via-transparent to-[var(--color-canvas)]/50 z-20 pointer-events-none"></div>
+  </div>
+
+  <!-- Foreground Content: Cinema Billboard Headline & CTAs -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30 py-16 lg:py-24 w-full">
+    <div class="max-w-2xl space-y-6">
       
-      <!-- Left Column: Billboard Headline & Actions -->
-      <div class="lg:col-span-7 space-y-6 text-left">
-        <!-- Date & Location Badge -->
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm">
-          <span class="w-2 h-2 rounded-full bg-[var(--color-accent-amber)] animate-pulse" aria-hidden="true"></span>
-          <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
-            {FESTIVAL_INFO.dates} • Kigali, Rwanda
-          </span>
-        </div>
-
-        <!-- Main Title -->
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[var(--color-text-primary)] leading-[1.08]">
-          Stories Without <span class="text-[var(--color-accent-amber)]">Barriers</span>
-        </h1>
-
-        <!-- 4 Pillars Tagline -->
-        <p class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[var(--color-accent-indigo)]">
-          Film • Inclusion • Dignity • Ability
-        </p>
-
-        <!-- Punchy Description -->
-        <p class="text-base sm:text-lg text-[var(--color-text-secondary)] max-w-xl leading-relaxed">
-          Rwanda's disability-inclusive film festival celebrating joyful stories, extraordinary abilities, and empowering young storytellers as cultural leaders.
-        </p>
-
-        <!-- Action CTAs -->
-        <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-          <a
-            href="/submit"
-            class="px-8 py-3.5 rounded-xl font-extrabold text-xs sm:text-sm text-black bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] shadow-lg hover:shadow-yellow-500/20 transition-all text-center"
-          >
-            Submit Film & Apply (Deadline: Nov 20)
-          </a>
-          <a
-            href="/about"
-            class="px-6 py-3.5 rounded-xl font-semibold text-xs sm:text-sm text-[var(--color-text-primary)] bg-[var(--color-surface)] hover:bg-[var(--color-surface-hover)] border border-[var(--color-border)] transition-all text-center"
-          >
-            Explore Festival →
-          </a>
-        </div>
-
-        <!-- Trust / Inclusion Micro-Pills -->
-        <div class="pt-2 flex items-center gap-3 text-xs text-[var(--color-text-muted)]">
-          <span class="flex items-center gap-1">
-            <span class="text-[var(--color-accent-indigo)]">✔</span> 100% Fee Waiver for PWDs
-          </span>
-          <span class="text-[var(--color-border)]">•</span>
-          <span class="flex items-center gap-1">
-            <span class="text-[var(--color-accent-amber)]">♿</span> Barrier-Free Screenings
-          </span>
-        </div>
+      <!-- Date & Location Badge -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-white/20 shadow-lg">
+        <span class="w-2.5 h-2.5 rounded-full bg-[var(--color-accent-amber)] animate-pulse" aria-hidden="true"></span>
+        <span class="text-xs font-extrabold uppercase tracking-wider text-white">
+          {FESTIVAL_INFO.dates} • Kigali, Rwanda
+        </span>
       </div>
 
-      <!-- Right Column: High-Impact Featured Cinema Photo -->
-      <div class="lg:col-span-5 relative">
-        <div class="rounded-3xl overflow-hidden border border-[var(--color-border)] shadow-2xl relative group">
-          <img
-            src="/images/hero-filmmaking-joy.jpg"
-            alt="Joyful young Rwandan creators and students with disabilities collaborating on camera equipment in Kigali"
-            width="800"
-            height="600"
-            loading="eager"
-            decoding="async"
-            class="w-full h-72 sm:h-96 lg:h-[460px] object-cover object-center group-hover:scale-102 transition-transform duration-500"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-canvas)]/80 via-transparent to-transparent pointer-events-none"></div>
-          
-          <!-- Bottom Floating Caption Overlay -->
-          <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-            <span class="text-[11px] font-bold px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-white shadow">
-              🎬 Kigali Inclusive Cinema Lab
-            </span>
-            <span class="text-[11px] font-bold px-3 py-1 rounded-full bg-[var(--color-accent-amber)] text-black shadow">
-              Dec 15–17, 2026
-            </span>
-          </div>
-        </div>
+      <!-- Main Headline with Golden Spotlight -->
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.05] drop-shadow-md">
+        Stories Without <span class="text-[var(--color-accent-amber)]">Barriers</span>
+      </h1>
+
+      <!-- Pillars Tagline -->
+      <p class="text-xs sm:text-sm font-bold uppercase tracking-widest text-emerald-400 drop-shadow">
+        Film • Inclusion • Dignity • Ability
+      </p>
+
+      <!-- Mission Statement -->
+      <p class="text-base sm:text-lg text-slate-200 leading-relaxed max-w-xl drop-shadow-sm font-medium">
+        Rwanda's disability-inclusive film festival celebrating joyful stories, extraordinary abilities, and empowering young storytellers as cultural leaders.
+      </p>
+
+      <!-- Primary Action Buttons -->
+      <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+        <a
+          href="/submit"
+          class="px-8 py-4 rounded-xl font-extrabold text-sm text-black bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] shadow-2xl hover:shadow-yellow-500/30 transition-all text-center transform hover:-translate-y-0.5"
+        >
+          Submit Film & Apply (Deadline: Nov 20)
+        </a>
+        <a
+          href="/about"
+          class="px-6 py-4 rounded-xl font-bold text-sm text-white bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/30 transition-all text-center"
+        >
+          Explore Festival →
+        </a>
+      </div>
+
+      <!-- Micro Trust Badges -->
+      <div class="pt-2 flex flex-wrap items-center gap-3 text-xs text-slate-300 font-medium">
+        <span class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/50 backdrop-blur-sm border border-white/10">
+          <span class="text-emerald-400 font-bold">✔</span> 100% Fee Waiver for PWDs
+        </span>
+        <span class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/50 backdrop-blur-sm border border-white/10">
+          <span class="text-[var(--color-accent-amber)]">♿</span> 100% Barrier-Free Screenings
+        </span>
       </div>
 
     </div>
   </div>
+
+  <!-- Bottom Floating Slide Indicator & Caption Bar -->
+  <div class="absolute bottom-6 left-4 right-4 sm:left-8 sm:right-8 z-30 flex flex-col sm:flex-row items-center justify-between gap-3">
+    <!-- Active Caption -->
+    <div id="slide-caption" class="text-xs font-semibold px-4 py-1.5 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-white/90 shadow">
+      {HERO_SLIDES[0].caption}
+    </div>
+
+    <!-- Navigation Dots / Bars -->
+    <div class="flex items-center gap-2" role="tablist" aria-label="Slideshow Controls">
+      {HERO_SLIDES.map((_, i) => (
+        <button
+          type="button"
+          class={`slide-dot h-2 rounded-full transition-all duration-300 ${i === 0 ? 'w-8 bg-[var(--color-accent-amber)]' : 'w-2.5 bg-white/40 hover:bg-white/70'}`}
+          data-slide-to={i}
+          aria-label={`Go to slide ${i + 1}`}
+        ></button>
+      ))}
+    </div>
+  </div>
+
 </section>
+
+<!-- Lightweight Vanilla JS Auto-Slider with Accessibility Controls -->
+<script is:inline>
+  (function() {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.slide-dot');
+    const captionEl = document.getElementById('slide-caption');
+    const slider = document.getElementById('hero-slider');
+    
+    if (!slides.length) return;
+
+    const captions = [
+      'Kigali Inclusive Cinema Lab • Hands-on Filmmaking',
+      'Stories Without Barriers • Shared Humanity & Kinship',
+      'Empowerment & Cultural Leadership • Kigali',
+      'Adaptive Workshops • Lighting & Directing',
+      'Inaugural Festival Edition • 15–17 December 2026'
+    ];
+
+    let current = 0;
+    let timer = null;
+    const interval = 5000; // 5 seconds per slide
+
+    function showSlide(index) {
+      slides.forEach((s, i) => {
+        if (i === index) {
+          s.classList.remove('opacity-0', 'z-0');
+          s.classList.add('opacity-100', 'z-10');
+        } else {
+          s.classList.remove('opacity-100', 'z-10');
+          s.classList.add('opacity-0', 'z-0');
+        }
+      });
+
+      dots.forEach((d, i) => {
+        if (i === index) {
+          d.classList.remove('w-2.5', 'bg-white/40');
+          d.classList.add('w-8', 'bg-[var(--color-accent-amber)]');
+        } else {
+          d.classList.remove('w-8', 'bg-[var(--color-accent-amber)]');
+          d.classList.add('w-2.5', 'bg-white/40');
+        }
+      });
+
+      if (captionEl && captions[index]) {
+        captionEl.textContent = captions[index];
+      }
+
+      current = index;
+    }
+
+    function nextSlide() {
+      const next = (current + 1) % slides.length;
+      showSlide(next);
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      timer = setInterval(nextSlide, interval);
+    }
+
+    function stopAutoPlay() {
+      if (timer) clearInterval(timer);
+    }
+
+    // Manual Dot Clicking
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        showSlide(idx);
+        startAutoPlay();
+      });
+    });
+
+    // Pause on hover
+    if (slider) {
+      slider.addEventListener('mouseenter', stopAutoPlay);
+      slider.addEventListener('mouseleave', startAutoPlay);
+    }
+
+    // Respect Reduced Motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (!prefersReducedMotion.matches) {
+      startAutoPlay();
+    }
+  })();
+</script>
