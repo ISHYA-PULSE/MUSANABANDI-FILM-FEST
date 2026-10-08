@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { FESTIVAL_INFO } from '../data/festival';
-import { SUBMISSION_TRACKS, FILM_CATEGORIES, SUBMISSION_DEADLINES, SUBMISSION_REQUIREMENTS } from '../data/submissions';
+import { SUBMISSION_TRACKS, FILM_CATEGORIES, SUBMISSION_DEADLINES, APPLICATION_FORMS } from '../data/submissions';
 ---
 
 <BaseLayout
   title={`Open Calls & Applications | ${FESTIVAL_INFO.name}`}
-  description="Apply for MUSANABANDI 2026: 1. Film Submission (Short, Feature, Documentary), 2. Exhibition Application, and 3. Photography Workshop."
+  description="Apply for MUSANABANDI 2026: 1. Film Submission (Short, Feature, Doc), 2. Art Exhibition Application, and 3. Photography Class Workshop."
 >
   <div class="py-16 md:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
@@ -18,19 +18,19 @@ import { SUBMISSION_TRACKS, FILM_CATEGORIES, SUBMISSION_DEADLINES, SUBMISSION_RE
         3 Pathways to Participate
       </h1>
       <p class="mt-4 text-base text-[var(--color-text-secondary)]">
-        Whether you are a filmmaker, a visual artist, or an aspiring photographer with a disability, MUSANABANDI 2026 welcomes your creative voice.
+        Submit your film, apply for an art exhibition stall, or register for the youth photography workshop via the official Google Application Forms below.
       </p>
       
       <!-- Deadline Pill -->
       <div class="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-950/80 border border-red-800/80 text-red-200 text-xs font-bold">
-        <span>⏰</span> Final Application Deadline: November 20, 2026 • Festival: Dec 15–17, 2026 (Kigali)
+        <span>⏰</span> Application Deadline: November 20, 2026 • Festival: Dec 15–17, 2026 (Kigali)
       </div>
     </header>
 
-    <!-- 3 Tracks Master Grid -->
+    <!-- 3 Tracks Master Grid with Direct Google Form Buttons -->
     <section class="mb-16">
       <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6 text-center">
-        Select Your Participation Track
+        Select Your Application Form
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {SUBMISSION_TRACKS.map(track => (
@@ -58,12 +58,20 @@ import { SUBMISSION_TRACKS, FILM_CATEGORIES, SUBMISSION_DEADLINES, SUBMISSION_RE
               </p>
             </div>
 
-            <div class="pt-6 mt-6 border-t border-[var(--color-border-subtle)]">
+            <div class="pt-6 mt-6 border-t border-[var(--color-border-subtle)] space-y-2">
               <a
-                href={track.actionHref}
-                class="block w-full py-2.5 text-center rounded-xl font-bold text-xs bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] text-black shadow transition-all"
+                href={track.formUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block w-full py-3 text-center rounded-xl font-extrabold text-xs bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] text-black shadow-md transition-all"
               >
-                {track.actionLabel} →
+                {track.actionLabel} ↗
+              </a>
+              <a
+                href={`#track-${track.id}`}
+                class="block w-full py-1.5 text-center text-[11px] font-semibold text-[var(--color-text-muted)] hover:text-white transition-colors"
+              >
+                Read Track Details ↓
               </a>
             </div>
           </div>
@@ -79,23 +87,23 @@ import { SUBMISSION_TRACKS, FILM_CATEGORIES, SUBMISSION_DEADLINES, SUBMISSION_RE
         </div>
         <h2 class="text-lg font-bold text-[var(--color-text-primary)]">100% Application & Entry Fee Waiver for PWDs</h2>
         <p class="text-xs text-[var(--color-text-secondary)] mt-1 max-w-xl">
-          Financial barriers must never obstruct creative participation. All disabled filmmakers, visual artists, and workshop candidates participate 100% free of charge.
+          Financial barriers must never obstruct creative participation. All disabled filmmakers, visual artists, and photography workshop candidates participate 100% free of charge.
         </p>
       </div>
       <a
-        href={`mailto:${FESTIVAL_INFO.email}?subject=Fee%20Waiver%20Inquiry%20MUSANABANDI%202026`}
-        class="shrink-0 px-5 py-3 rounded-xl font-extrabold text-xs bg-[var(--color-accent-amber)] text-black hover:bg-[var(--color-accent-amber-hover)] transition-all shadow-md"
+        href={`mailto:${FESTIVAL_INFO.email}?subject=Inquiry%20MUSANABANDI%202026`}
+        class="shrink-0 px-5 py-3 rounded-xl font-bold text-xs bg-[var(--color-surface)] text-[var(--color-text-primary)] hover:bg-white/10 border border-[var(--color-border)] transition-all shadow-md"
       >
-        Request Assistance / Waiver
+        Questions? Contact Us
       </a>
     </div>
 
     <!-- Track 1: Film Categories Section -->
-    <section id="film-categories" class="mb-16 p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+    <section id="track-films" class="mb-16 p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)]">
       <div class="mb-8">
         <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-accent-amber)]">Track 01 • Film Competition</span>
         <h2 class="text-2xl sm:text-3xl font-bold text-[var(--color-text-primary)] mt-1">Film Submission Categories</h2>
-        <p class="text-xs text-[var(--color-text-secondary)] mt-1">Accepting submissions across 3 main cinematic forms:</p>
+        <p class="text-xs text-[var(--color-text-secondary)] mt-1">Muri film submission hazazamo: Short Film, Feature Film, na Documentary Film.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -111,37 +119,39 @@ import { SUBMISSION_TRACKS, FILM_CATEGORIES, SUBMISSION_DEADLINES, SUBMISSION_RE
 
       <div class="text-center pt-4 border-t border-[var(--color-border-subtle)]">
         <a
-          href="https://filmfreeway.com"
+          href={APPLICATION_FORMS.film}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-extrabold bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] text-black shadow-lg transition-all"
         >
-          <span>🎬</span> Submit Film on FilmFreeway
+          <span>🎬</span> Open Film Submission Form (Google Form) ↗
         </a>
       </div>
     </section>
 
     <!-- Track 2: Exhibition Application Section -->
-    <section id="exhibition" class="mb-16 p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)]">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-        <div class="md:col-span-8 space-y-4">
-          <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-accent-indigo)]">Track 02 • Visual Arts & Stalls</span>
-          <h2 class="text-2xl sm:text-3xl font-bold text-[var(--color-text-primary)]">Apply for Exhibition Booth</h2>
+    <section id="track-exhibition" class="mb-16 p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8 space-y-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-accent-indigo)]">Track 02 • Visual & Cultural Arts</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[var(--color-text-primary)]">Participate in Art Exhibition</h2>
           <p class="text-xs sm:text-sm text-[var(--color-text-secondary)] leading-relaxed">
-            Are you a painter, sculptor, ceramicist, photographer, or craftsman with a disability in Rwanda? Showcase and sell your creations during the 3 festival days (Dec 15–17, 2026) at our central Kigali exhibition gallery.
+            Showcase your visual art, paintings, sculptures, crafts, and photography during the 3 festival days (Dec 15–17, 2026) in Kigali. Free exhibition booths and setup assistance provided for disabled artists.
           </p>
           <ul class="text-xs text-[var(--color-text-secondary)] space-y-2 pt-1">
-            <li class="flex items-center gap-2"><span>✔</span> Free exhibition booth provided</li>
-            <li class="flex items-center gap-2"><span>✔</span> Direct interaction with cultural attendees & buyers</li>
-            <li class="flex items-center gap-2"><span>✔</span> Accessible setup assistance supported by festival volunteers</li>
+            <li class="flex items-center gap-2"><span>✔</span> Free exhibition stall at festival venue in Kigali</li>
+            <li class="flex items-center gap-2"><span>✔</span> Direct sales and networking with cultural attendees</li>
+            <li class="flex items-center gap-2"><span>✔</span> Accessible setup support by festival team</li>
           </ul>
         </div>
-        <div class="md:col-span-4 text-center">
+        <div class="lg:col-span-4 text-center">
           <a
-            href={`mailto:${FESTIVAL_INFO.email}?subject=Exhibition%20Application%20MUSANABANDI%202026`}
-            class="inline-block w-full px-6 py-3.5 rounded-xl font-bold text-xs bg-[var(--color-accent-indigo)] hover:bg-[var(--color-accent-indigo-hover)] text-white shadow-md transition-all"
+            href={APPLICATION_FORMS.exhibition}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block w-full px-6 py-3.5 rounded-xl font-extrabold text-xs bg-[var(--color-accent-indigo)] hover:bg-[var(--color-accent-indigo-hover)] text-white shadow-md transition-all"
           >
-            Apply for Exhibition Space
+            Open Exhibition Google Form ↗
           </a>
           <span class="text-[11px] text-[var(--color-text-muted)] block mt-2">Deadline: 20 November 2026</span>
         </div>
@@ -149,26 +159,28 @@ import { SUBMISSION_TRACKS, FILM_CATEGORIES, SUBMISSION_DEADLINES, SUBMISSION_RE
     </section>
 
     <!-- Track 3: Photography Workshop Section -->
-    <section id="workshop" class="mb-16 p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)]">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-        <div class="md:col-span-8 space-y-4">
+    <section id="track-photography-workshop" class="mb-16 p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8 space-y-4">
           <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-accent-amber)]">Track 03 • Youth Capacity Building</span>
-          <h2 class="text-2xl sm:text-3xl font-bold text-[var(--color-text-primary)]">Photography & Visual Storytelling Workshop</h2>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[var(--color-text-primary)]">Photography Class & Workshop</h2>
           <p class="text-xs sm:text-sm text-[var(--color-text-secondary)] leading-relaxed">
-            A practical, fully inclusive 3-day photography training lab led by industry mentors. Participants learn camera handling, adaptive shooting techniques, lighting, and digital post-production.
+            A practical, fully inclusive 3-day photography training lab for Rwandan youth with disabilities. Learn camera handling, adaptive shooting techniques, lighting, and visual storytelling.
           </p>
           <ul class="text-xs text-[var(--color-text-secondary)] space-y-2 pt-1">
             <li class="flex items-center gap-2"><span>✔</span> Tailored for Rwandan youth with disabilities</li>
-            <li class="flex items-center gap-2"><span>✔</span> Cameras & equipment provided on-site</li>
-            <li class="flex items-center gap-2"><span>✔</span> Certificate of completion and mentorship pathways</li>
+            <li class="flex items-center gap-2"><span>✔</span> Hands-on camera gear and mentors on site</li>
+            <li class="flex items-center gap-2"><span>✔</span> 100% Free registration and participation</li>
           </ul>
         </div>
-        <div class="md:col-span-4 text-center">
+        <div class="lg:col-span-4 text-center">
           <a
-            href={`mailto:${FESTIVAL_INFO.email}?subject=Photography%20Workshop%20Registration%20MUSANABANDI%202026`}
+            href={APPLICATION_FORMS.photography}
+            target="_blank"
+            rel="noopener noreferrer"
             class="inline-block w-full px-6 py-3.5 rounded-xl font-extrabold text-xs bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] text-black shadow-md transition-all"
           >
-            Register for Workshop
+            Open Photography Class Form ↗
           </a>
           <span class="text-[11px] text-[var(--color-text-muted)] block mt-2">Limited spots • Deadline: 20 Nov 2026</span>
         </div>

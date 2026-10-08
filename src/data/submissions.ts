@@ -7,6 +7,7 @@ export interface SubmissionTrack {
   description: string;
   actionLabel: string;
   actionHref: string;
+  formUrl: string;
   icon: string;
 }
 
@@ -25,6 +26,12 @@ export interface DeadlineItem {
   status: "active" | "upcoming" | "closed";
 }
 
+export const APPLICATION_FORMS = {
+  film: "https://docs.google.com/forms/d/e/1FAIpQLSfutIxnepf0Vo5hpUH4DidkLtYaSqLG2WuK2w7CWMjlWxwKGg/viewform",
+  photography: "https://docs.google.com/forms/d/e/1FAIpQLSdwvjW2QqzFZKQCN4Udlnwnb3K1A1fY_b5TxGixAfViTRqO0w/viewform",
+  exhibition: "https://docs.google.com/forms/d/e/1FAIpQLSdphMtpCHPFx_MwnTnvjmQpKnHKSJTUuJ4v57DAF5DIuBn_Hw/viewform"
+};
+
 export const SUBMISSION_TRACKS: SubmissionTrack[] = [
   {
     id: "films",
@@ -33,8 +40,9 @@ export const SUBMISSION_TRACKS: SubmissionTrack[] = [
     kinyarwandaTitle: "Ohereza Filime Yawe",
     badge: "Cinema Competition",
     description: "Accepting Short Films, Feature Films, and Documentary Films championing authentic disability representation and creative agency.",
-    actionLabel: "Submit Film Entries",
-    actionHref: "/submit#film-categories",
+    actionLabel: "Open Film Application Form",
+    actionHref: APPLICATION_FORMS.film,
+    formUrl: APPLICATION_FORMS.film,
     icon: "🎬"
   },
   {
@@ -44,8 +52,9 @@ export const SUBMISSION_TRACKS: SubmissionTrack[] = [
     kinyarwandaTitle: "Saba Kumurika Ibikorwa",
     badge: "Visual & Cultural Arts",
     description: "A premier physical showcase for disabled visual artists, painters, sculptors, and multimedia exhibitors during the 3 festival days.",
-    actionLabel: "Apply for Exhibition Booth",
-    actionHref: "/submit#exhibition",
+    actionLabel: "Open Exhibition Form",
+    actionHref: APPLICATION_FORMS.exhibition,
+    formUrl: APPLICATION_FORMS.exhibition,
     icon: "🎨"
   },
   {
@@ -55,8 +64,9 @@ export const SUBMISSION_TRACKS: SubmissionTrack[] = [
     kinyarwandaTitle: "Amahugurwa yo Gufotora",
     badge: "Capacity Building Lab",
     description: "Hands-on masterclass empowering Rwandan youth with disabilities with adaptive cameras, visual composition, and digital storytelling skills.",
-    actionLabel: "Register for Workshop",
-    actionHref: "/submit#workshop",
+    actionLabel: "Open Workshop Form",
+    actionHref: APPLICATION_FORMS.photography,
+    formUrl: APPLICATION_FORMS.photography,
     icon: "📷"
   }
 ];
