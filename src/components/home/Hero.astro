@@ -2,80 +2,93 @@
 import { FESTIVAL_INFO } from '../../data/festival';
 ---
 
-<section class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-[var(--color-border-subtle)]">
-  <!-- Atmospheric Scrim -->
-  <div class="absolute inset-0 z-0 pointer-events-none">
-    <img
-      src="/images/hero-cinematographer-interview.jpg"
-      alt=""
-      role="presentation"
-      class="w-full h-full object-cover opacity-10 filter blur-[2px] scale-105"
-      loading="eager"
-      decoding="async"
-    />
-    <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-canvas)]/90 via-[var(--color-canvas)]/95 to-[var(--color-canvas)]"></div>
-  </div>
+<section class="relative overflow-hidden py-12 lg:py-16 border-b border-[var(--color-border-subtle)] bg-[var(--color-canvas)]">
+  <!-- Subtle Background Scrim Glow -->
+  <div class="absolute top-0 right-1/4 w-96 h-96 bg-[var(--color-accent-amber-glow)] rounded-full blur-3xl pointer-events-none -z-10"></div>
+  <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-[var(--color-accent-indigo-glow)] rounded-full blur-3xl pointer-events-none -z-10"></div>
 
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-    <!-- Date & Location Pill -->
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm mb-6">
-      <span class="w-2 h-2 rounded-full bg-[var(--color-accent-amber)] animate-pulse" aria-hidden="true"></span>
-      <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)]">
-        {FESTIVAL_INFO.dates} • Kigali, Rwanda
-      </span>
-    </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      
+      <!-- Left Column: Billboard Headline & Actions -->
+      <div class="lg:col-span-7 space-y-6 text-left">
+        <!-- Date & Location Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-[var(--color-accent-amber)] animate-pulse" aria-hidden="true"></span>
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
+            {FESTIVAL_INFO.dates} • Kigali, Rwanda
+          </span>
+        </div>
 
-    <!-- Main Title -->
-    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[var(--color-text-primary)] max-w-4xl mx-auto leading-[1.1]">
-      Stories Without <span class="text-[var(--color-accent-amber)]">Barriers</span>
-    </h1>
+        <!-- Main Title -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[var(--color-text-primary)] leading-[1.08]">
+          Stories Without <span class="text-[var(--color-accent-amber)]">Barriers</span>
+        </h1>
 
-    <!-- 4 Pillars Tagline -->
-    <p class="mt-4 text-base sm:text-lg font-semibold text-[var(--color-accent-indigo)] tracking-widest uppercase">
-      Film • Inclusion • Dignity • Ability
-    </p>
+        <!-- 4 Pillars Tagline -->
+        <p class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[var(--color-accent-indigo)]">
+          Film • Inclusion • Dignity • Ability
+        </p>
 
-    <!-- Punchy Intro -->
-    <p class="mt-5 text-base sm:text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto leading-relaxed">
-      Rwanda's disability-inclusive film festival celebrating joyful stories, extraordinary abilities, and empowering young storytellers as cultural leaders.
-    </p>
+        <!-- Punchy Description -->
+        <p class="text-base sm:text-lg text-[var(--color-text-secondary)] max-w-xl leading-relaxed">
+          Rwanda's disability-inclusive film festival celebrating joyful stories, extraordinary abilities, and empowering young storytellers as cultural leaders.
+        </p>
 
-    <!-- Clean Primary CTAs -->
-    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a
-        href="/submit"
-        class="w-full sm:w-auto px-8 py-3.5 rounded-xl font-extrabold text-black bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] shadow-lg hover:shadow-yellow-500/20 transition-all text-center"
-      >
-        Submit Film & Apply (Deadline: Nov 20)
-      </a>
-      <a
-        href="/about"
-        class="w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold text-[var(--color-text-primary)] bg-[var(--color-surface)] hover:bg-[var(--color-surface-hover)] border border-[var(--color-border)] transition-all text-center"
-      >
-        Explore Festival →
-      </a>
-    </div>
+        <!-- Action CTAs -->
+        <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <a
+            href="/submit"
+            class="px-8 py-3.5 rounded-xl font-extrabold text-xs sm:text-sm text-black bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] shadow-lg hover:shadow-yellow-500/20 transition-all text-center"
+          >
+            Submit Film & Apply (Deadline: Nov 20)
+          </a>
+          <a
+            href="/about"
+            class="px-6 py-3.5 rounded-xl font-semibold text-xs sm:text-sm text-[var(--color-text-primary)] bg-[var(--color-surface)] hover:bg-[var(--color-surface-hover)] border border-[var(--color-border)] transition-all text-center"
+          >
+            Explore Festival →
+          </a>
+        </div>
 
-    <!-- High-Impact Showcase Image -->
-    <div class="mt-12 relative max-w-4xl mx-auto rounded-3xl overflow-hidden border border-[var(--color-border)] shadow-2xl">
-      <img
-        src="/images/hero-filmmaking-joy.jpg"
-        alt="Joyful young Rwandan creators and students with disabilities collaborating on camera equipment in Kigali"
-        width="1200"
-        height="560"
-        loading="eager"
-        decoding="async"
-        class="w-full h-64 sm:h-80 md:h-[420px] object-cover object-center"
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-canvas)]/80 via-transparent to-transparent"></div>
-      <div class="absolute bottom-4 left-6 right-6 flex items-center justify-between">
-        <span class="text-xs font-bold px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white">
-          Inaugural Edition • Kigali 2026
-        </span>
-        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-[var(--color-accent-indigo)]/90 text-white">
-          ♿ 100% Barrier-Free
-        </span>
+        <!-- Trust / Inclusion Micro-Pills -->
+        <div class="pt-2 flex items-center gap-3 text-xs text-[var(--color-text-muted)]">
+          <span class="flex items-center gap-1">
+            <span class="text-[var(--color-accent-indigo)]">✔</span> 100% Fee Waiver for PWDs
+          </span>
+          <span class="text-[var(--color-border)]">•</span>
+          <span class="flex items-center gap-1">
+            <span class="text-[var(--color-accent-amber)]">♿</span> Barrier-Free Screenings
+          </span>
+        </div>
       </div>
+
+      <!-- Right Column: High-Impact Featured Cinema Photo -->
+      <div class="lg:col-span-5 relative">
+        <div class="rounded-3xl overflow-hidden border border-[var(--color-border)] shadow-2xl relative group">
+          <img
+            src="/images/hero-filmmaking-joy.jpg"
+            alt="Joyful young Rwandan creators and students with disabilities collaborating on camera equipment in Kigali"
+            width="800"
+            height="600"
+            loading="eager"
+            decoding="async"
+            class="w-full h-72 sm:h-96 lg:h-[460px] object-cover object-center group-hover:scale-102 transition-transform duration-500"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-canvas)]/80 via-transparent to-transparent pointer-events-none"></div>
+          
+          <!-- Bottom Floating Caption Overlay -->
+          <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+            <span class="text-[11px] font-bold px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-white shadow">
+              🎬 Kigali Inclusive Cinema Lab
+            </span>
+            <span class="text-[11px] font-bold px-3 py-1 rounded-full bg-[var(--color-accent-amber)] text-black shadow">
+              Dec 15–17, 2026
+            </span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
