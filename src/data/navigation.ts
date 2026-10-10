@@ -7,10 +7,7 @@ export interface NavLink {
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Program", href: "/program" },
-  { label: "Submit Film", href: "/submit", badge: "Open" },
-  { label: "Accessibility", href: "/accessibility" },
-  { label: "Partners", href: "/partner" }
+  { label: "Submit & Apply", href: "/submit", badge: "Open" }
 ];
 
 export const SOCIAL_LINKS = [

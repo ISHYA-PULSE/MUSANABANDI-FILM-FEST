@@ -105,7 +105,7 @@ export const SUBMISSION_DEADLINES: DeadlineItem[] = [
 export const SUBMISSION_REQUIREMENTS = [
   "All film submissions must include English or French subtitles/closed captions.",
   "Rwandan Sign Language (RSL) and Audio Description tracks are enthusiastically supported.",
-  "Exhibition pieces must be ready for safe physical mounting at Kigali Cultural Village.",
+  "Exhibition pieces must be ready for safe physical mounting at RP ICT Innovation Center.",
   "Workshop applicants must be Rwandan youth interested in visual arts and disability advocacy.",
   "Submission and workshop fees are 100% waived for creators with disabilities."
 ];

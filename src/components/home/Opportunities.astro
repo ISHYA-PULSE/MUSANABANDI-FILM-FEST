@@ -2,25 +2,25 @@
 import { SUBMISSION_TRACKS } from '../../data/submissions';
 ---
 
-<section class="py-20 bg-[var(--color-surface)] border-b border-[var(--color-border-subtle)]">
+<section class="py-16 sm:py-20 bg-[var(--color-surface)] border-b border-[var(--color-border-subtle)]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
-    <div class="max-w-3xl mb-12">
+    <div class="max-w-3xl mb-10 sm:mb-12">
       <span class="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-amber)] block mb-2">
         Open Calls • 2026 Edition
       </span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-[var(--color-text-primary)]">
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-[var(--color-text-primary)]">
         3 Pathways to Participate
       </h2>
-      <p class="mt-3 text-sm text-[var(--color-text-secondary)]">
+      <p class="mt-3 text-xs sm:text-sm text-[var(--color-text-secondary)] leading-relaxed">
         Whether you are a filmmaker, a visual artist, or an aspiring young photographer with a disability, MUSANABANDI welcomes your voice.
       </p>
     </div>
 
-    <!-- 3 Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {SUBMISSION_TRACKS.map(track => (
-        <div class="p-6 rounded-3xl bg-[var(--color-canvas)] border border-[var(--color-border)] hover:border-[var(--color-accent-amber)] transition-all flex flex-col justify-between group">
+    <!-- 3 Cards Grid (1 col mobile, 2 cols tablet, 3 cols desktop) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {SUBMISSION_TRACKS.map((track, idx) => (
+        <div class={`p-5 sm:p-6 rounded-3xl bg-[var(--color-canvas)] border border-[var(--color-border)] hover:border-[var(--color-accent-amber)] transition-all flex flex-col justify-between group ${idx === 2 ? 'md:col-span-2 lg:col-span-1' : ''}`}>
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <span class="text-3xl">{track.icon}</span>
@@ -44,7 +44,7 @@ import { SUBMISSION_TRACKS } from '../../data/submissions';
               href={track.formUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="block w-full py-2.5 text-center rounded-xl font-bold text-xs bg-[var(--color-surface)] hover:bg-[var(--color-accent-amber)] hover:text-black text-[var(--color-text-primary)] border border-[var(--color-border)] transition-all"
+              class="block w-full py-3 sm:py-2.5 text-center rounded-xl font-bold text-xs bg-[var(--color-surface)] hover:bg-[var(--color-accent-amber)] hover:text-black text-[var(--color-text-primary)] border border-[var(--color-border)] transition-all shadow-sm"
             >
               {track.actionLabel} ↗
             </a>
@@ -54,7 +54,7 @@ import { SUBMISSION_TRACKS } from '../../data/submissions';
     </div>
 
     <!-- Bottom Deadline Strip -->
-    <div class="mt-10 p-5 rounded-2xl bg-[var(--color-canvas)] border border-[var(--color-border)] flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="mt-8 sm:mt-10 p-5 rounded-2xl bg-[var(--color-canvas)] border border-[var(--color-border)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
       <div class="flex items-center gap-3 text-xs text-[var(--color-text-secondary)]">
         <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse shrink-0"></span>
         <span>

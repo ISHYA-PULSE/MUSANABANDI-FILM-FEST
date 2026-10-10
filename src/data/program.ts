@@ -24,7 +24,7 @@ export const PROGRAM_EVENTS: ProgramEvent[] = [
     time: "17:30 - 21:00",
     title: "Opening Red Carpet & Premiere Screening",
     category: "Gala",
-    venue: "Main Cinema Hall - Kigali Cultural Village",
+    venue: "Main Hall - RP ICT Innovation Center",
     speakerOrDirector: "Opening Remarks by Festival Patrons",
     description: "Inaugural red carpet welcoming filmmakers, community delegates, and premiering the opening Rwandan narrative centerpiece.",
     accessibilityBadges: ["♿ Wheelchair Access", "🧏 Sign Language", "💬 Captions", "🎧 Audio Description"]

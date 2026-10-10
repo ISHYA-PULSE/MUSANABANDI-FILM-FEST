@@ -38,7 +38,7 @@ export const ACCESSIBILITY_FEATURES: AccessibilityFeature[] = [
 ];
 
 export const VENUE_INFO = {
-  mainVenue: "Kigali Cultural Village (KCV)",
+  mainVenue: "RP ICT Innovation Center",
   address: "KN 3 Ave, Kigali, Rwanda",
   parking: "Dedicated accessible parking directly adjacent to the main pavilion entrance",
   assistanceDesk: "Located immediately inside Gate 1 with tactile floor guides",
