@@ -26,7 +26,7 @@ export const FESTIVAL_INFO: FestivalMeta = {
   venue: "Kigali Cultural Village & Select Screen Hubs",
   city: "Kigali",
   country: "Rwanda",
-  email: "info@musanabandifilmfest.rw",
+  email: "info@musanabandi.org",
   whatsapp: "+250 788 000 000",
   whatsappUrl: "https://wa.me/250788000000?text=Hello%20MUSANABANDI%20Film%20Festival",
   vision: "A Rwanda where persons with disabilities are fully represented, respected and empowered to participate in the film, creative and cultural industries.",
