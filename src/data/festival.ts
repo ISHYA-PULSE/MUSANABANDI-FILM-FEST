@@ -27,8 +27,8 @@ export const FESTIVAL_INFO: FestivalMeta = {
   city: "Kigali",
   country: "Rwanda",
   email: "musanabandifilmfestival@gmail.com",
-  whatsapp: "+250 788 000 000",
-  whatsappUrl: "https://wa.me/250788000000?text=Hello%20MUSANABANDI%20Film%20Festival",
+  whatsapp: "+250 788 693 284",
+  whatsappUrl: "https://wa.me/250788693284?text=Hello%20MUSANABANDI%20Film%20Festival",
   vision: "A Rwanda where persons with disabilities are fully represented, respected and empowered to participate in the film, creative and cultural industries.",
   mission: "To use film and creative storytelling to promote dignity, inclusion and equal opportunities for persons with disabilities while creating platforms for their voices, talents, stories and creative careers.",
   overallGoal: "To build a more inclusive society by using film and creative arts to change perceptions of disability, celebrate abilities and create meaningful opportunities for persons with disabilities in Rwanda.",
@@ -55,7 +55,7 @@ export const PILLARS: PillarItem[] = [
   {
     id: "inclusion",
     title: "Inclusion",
-    kinyarwanda: "Uruhare rwa Bose",
+    kinyarwanda: "Ubudaheza",
     description: "Dismantling physical, technological, and attitudinal barriers in cinema production and audience participation.",
     icon: "users"
   },

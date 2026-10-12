@@ -42,5 +42,5 @@ export const VENUE_INFO = {
   address: "KN 3 Ave, Kigali, Rwanda",
   parking: "Dedicated accessible parking directly adjacent to the main pavilion entrance",
   assistanceDesk: "Located immediately inside Gate 1 with tactile floor guides",
-  emergencyContact: "+250 788 123 456"
+  emergencyContact: "+250 788 693 284"
 };

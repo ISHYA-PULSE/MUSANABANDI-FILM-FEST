@@ -23,7 +23,30 @@ import { SUBMISSION_TRACKS } from '../../data/submissions';
         <div class={`p-5 sm:p-6 rounded-3xl bg-[var(--color-canvas)] border border-[var(--color-border)] hover:border-[var(--color-accent-amber)] transition-all flex flex-col justify-between group ${idx === 2 ? 'md:col-span-2 lg:col-span-1' : ''}`}>
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="text-3xl">{track.icon}</span>
+              <div class="w-12 h-12 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center group-hover:scale-105 group-hover:border-[var(--color-accent-amber)] transition-all shadow-sm">
+                {track.id === 'films' && (
+                  <svg class="w-6 h-6 text-[var(--color-accent-amber)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="4" width="20" height="16" rx="3" />
+                    <path d="M2 9h20M7 4v5M12 4v5M17 4v5" />
+                    <circle cx="12" cy="14" r="2.5" />
+                  </svg>
+                )}
+                {track.id === 'exhibition' && (
+                  <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 1 0 0-18c-4.97 0-9 3.582-9 8a5 5 0 0 0 5 5h1.5a1.5 1.5 0 0 1 1.5 1.5c0 .828.672 1.5 1.5 1.5H12z" />
+                    <circle cx="7.5" cy="10.5" r="1.25" fill="currentColor" />
+                    <circle cx="12" cy="7.5" r="1.25" fill="currentColor" />
+                    <circle cx="16.5" cy="10.5" r="1.25" fill="currentColor" />
+                  </svg>
+                )}
+                {track.id === 'photography-workshop' && (
+                  <svg class="w-6 h-6 text-[var(--color-accent-amber)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 0 1 2-2h1.5a1 1 0 0 0 .8-.4l1.4-1.8a1 1 0 0 1 .8-.4h4.8a1 1 0 0 1 .8.4l1.4 1.8a1 1 0 0 0 .8.4H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z" />
+                    <circle cx="12" cy="13.5" r="3.5" />
+                    <path d="M17 10h.01" stroke-width="3" stroke-linecap="round" />
+                  </svg>
+                )}
+              </div>
               <span class="text-[11px] font-bold text-[var(--color-accent-indigo)] px-2.5 py-0.5 rounded-full bg-[var(--color-surface)] border border-[var(--color-border-subtle)]">
                 {track.badge}
               </span>
