@@ -79,7 +79,7 @@ const HERO_SLIDES = [
       </p>
 
       <!-- Primary Action Buttons -->
-      <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+      <div class="pt-2 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
         <a
           href="/submit"
           class="px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl font-extrabold text-sm text-black bg-[var(--color-accent-amber)] hover:bg-[var(--color-accent-amber-hover)] shadow-2xl hover:shadow-yellow-500/30 transition-all text-center transform hover:-translate-y-0.5"
@@ -87,10 +87,16 @@ const HERO_SLIDES = [
           Submit Film & Apply (Deadline: Nov 20)
         </a>
         <a
-          href="/about"
-          class="px-6 py-3.5 sm:py-4 rounded-xl font-bold text-sm text-white bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/30 transition-all text-center"
+          href="#stories-in-motion"
+          class="px-5 py-3.5 sm:py-4 rounded-xl font-bold text-sm text-white bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/30 transition-all text-center flex items-center justify-center gap-2"
         >
-          Explore Festival →
+          <span class="text-[var(--color-accent-amber)]">▶</span> Watch Films
+        </a>
+        <a
+          href="/about"
+          class="px-5 py-3.5 sm:py-4 rounded-xl font-semibold text-sm text-slate-300 hover:text-white hover:bg-white/10 transition-all text-center"
+        >
+          About Festival →
         </a>
       </div>
 

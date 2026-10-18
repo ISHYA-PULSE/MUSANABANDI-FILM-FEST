@@ -1,0 +1,227 @@
+---
+import { FESTIVAL_VIDEOS } from '../../data/videos';
+
+const featuredVideo = FESTIVAL_VIDEOS[0];
+---
+
+<section id="stories-in-motion" class="py-16 sm:py-24 bg-[var(--color-surface)] border-b border-[var(--color-border-subtle)]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="max-w-3xl mb-10 sm:mb-14">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-canvas)] border border-[var(--color-border)] mb-3">
+        <span class="w-2 h-2 rounded-full bg-[var(--color-accent-amber)] animate-pulse" aria-hidden="true"></span>
+        <span class="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-amber)]">
+          Stories in Motion • Inkuru mu Mashusho
+        </span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[var(--color-text-primary)] tracking-tight">
+        Featured Films & Community Stories
+      </h2>
+      <p class="mt-3 text-sm sm:text-base text-[var(--color-text-secondary)] leading-relaxed">
+        Watch authentic cinema narratives and impactful community dialogues directed and produced by Rwandan storytellers championing disability dignity and inclusion.
+      </p>
+    </div>
+
+    <!-- Cinema Theater Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left: Main Cinema Screen & Active Video Info (7 Cols on Desktop) -->
+      <div class="lg:col-span-7 xl:col-span-8 space-y-5">
+        
+        <!-- Video Screen Container (16:9 Aspect Ratio) -->
+        <div class="relative w-full aspect-video rounded-3xl overflow-hidden bg-black border-2 border-[var(--color-border)] shadow-2xl">
+          <iframe
+            id="main-video-player"
+            src={`https://www.youtube-nocookie.com/embed/${featuredVideo.youtubeId}?rel=0`}
+            title={featuredVideo.title}
+            class="w-full h-full border-0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <!-- Active Video Details Card -->
+        <div class="p-6 sm:p-7 rounded-3xl bg-[var(--color-canvas)] border border-[var(--color-border)] shadow-lg space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <span
+              id="active-video-badge"
+              class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--color-surface)] text-[var(--color-accent-amber)] border border-[var(--color-border-subtle)]"
+            >
+              {featuredVideo.durationBadge}
+            </span>
+            <a
+              id="active-video-external"
+              href={featuredVideo.youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--color-text-secondary)] hover:text-[var(--color-accent-amber)] transition-colors"
+            >
+              <span>Watch on YouTube</span>
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+
+          <div>
+            <h3 id="active-video-title" class="text-xl sm:text-2xl font-extrabold text-[var(--color-text-primary)]">
+              {featuredVideo.title}
+            </h3>
+            <p id="active-video-creator" class="text-xs sm:text-sm font-semibold text-[var(--color-accent-amber)] mt-1">
+              {featuredVideo.directorOrCreator}
+            </p>
+          </div>
+
+          <p id="active-video-description" class="text-xs sm:text-sm text-[var(--color-text-secondary)] leading-relaxed pt-1">
+            {featuredVideo.description}
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Right: Playlist Selector (5 Cols on Desktop) -->
+      <div class="lg:col-span-5 xl:col-span-4 space-y-3">
+        <div class="flex items-center justify-between pb-2 px-1">
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-text-muted)]">
+            Select Video ({FESTIVAL_VIDEOS.length} Available)
+          </span>
+          <span class="text-[11px] text-[var(--color-text-muted)]">Click to play</span>
+        </div>
+
+        <div class="space-y-3" role="tablist" aria-label="Festival Video Playlist">
+          {FESTIVAL_VIDEOS.map((video, index) => {
+            const isInitial = index === 0;
+            return (
+              <button
+                type="button"
+                class={`video-playlist-item w-full text-left p-3.5 sm:p-4 rounded-2xl bg-[var(--color-canvas)] border transition-all flex items-center gap-3.5 group cursor-pointer ${
+                  isInitial
+                    ? 'border-[var(--color-accent-amber)] ring-1 ring-[var(--color-accent-amber)]/40 bg-[var(--color-canvas-subtle)]'
+                    : 'border-[var(--color-border)] hover:border-[var(--color-accent-amber)]/70 hover:bg-[var(--color-surface)]'
+                }`}
+                data-id={video.id}
+                data-youtube-id={video.youtubeId}
+                data-title={video.title}
+                data-creator={video.directorOrCreator}
+                data-description={video.description}
+                data-badge={video.durationBadge}
+                data-url={video.youtubeUrl}
+                aria-selected={isInitial ? 'true' : 'false'}
+                role="tab"
+              >
+                <!-- Video Thumbnail with Play Overlay -->
+                <div class="relative w-28 sm:w-32 aspect-video rounded-xl overflow-hidden shrink-0 bg-black border border-[var(--color-border)]">
+                  <img
+                    src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                    alt={`Thumbnail for ${video.title}`}
+                    width="240"
+                    height="135"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <!-- Small Play Overlay Button -->
+                  <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-colors">
+                    <div class="w-7 h-7 rounded-full bg-[var(--color-accent-amber)] flex items-center justify-center text-black shadow-md">
+                      <svg class="w-3.5 h-3.5 fill-current ml-0.5" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Text Details -->
+                <div class="min-w-0 flex-1 space-y-1">
+                  <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-[var(--color-accent-amber)]">
+                    {video.category}
+                  </span>
+                  <h4 class="text-sm font-bold text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-amber)] transition-colors truncate">
+                    {video.title}
+                  </h4>
+                  <p class="text-[11px] text-[var(--color-text-muted)] truncate">
+                    {video.directorOrCreator}
+                  </p>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+
+        <!-- Cinema Call to Action -->
+        <div class="pt-4 text-center p-4 rounded-2xl bg-[var(--color-canvas)] border border-[var(--color-border-subtle)] space-y-2">
+          <p class="text-xs text-[var(--color-text-secondary)]">
+            Are you a filmmaker with a story on disability, inclusion, or lived experience?
+          </p>
+          <a
+            href="/submit"
+            class="inline-flex items-center gap-2 text-xs font-extrabold text-[var(--color-accent-amber)] hover:text-white transition-colors"
+          >
+            <span>Submit Your Film for MUSANABANDI 2026</span>
+            <span>→</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Interactive Playlist Switcher Script -->
+<script is:inline>
+  (function () {
+    const items = document.querySelectorAll('.video-playlist-item');
+    const player = document.getElementById('main-video-player');
+    const titleEl = document.getElementById('active-video-title');
+    const creatorEl = document.getElementById('active-video-creator');
+    const descEl = document.getElementById('active-video-description');
+    const badgeEl = document.getElementById('active-video-badge');
+    const linkEl = document.getElementById('active-video-external');
+
+    if (!items.length || !player) return;
+
+    items.forEach((item) => {
+      item.addEventListener('click', () => {
+        const youtubeId = item.getAttribute('data-youtube-id');
+        const title = item.getAttribute('data-title');
+        const creator = item.getAttribute('data-creator');
+        const desc = item.getAttribute('data-description');
+        const badge = item.getAttribute('data-badge');
+        const url = item.getAttribute('data-url');
+
+        // Update player source with autoplay enabled on manual selection
+        player.src = `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0`;
+        player.title = title || 'Featured Festival Video';
+
+        // Update metadata text
+        if (titleEl && title) titleEl.textContent = title;
+        if (creatorEl && creator) creatorEl.textContent = creator;
+        if (descEl && desc) descEl.textContent = desc;
+        if (badgeEl && badge) badgeEl.textContent = badge;
+        if (linkEl && url) linkEl.href = url;
+
+        // Update active class styling across buttons
+        items.forEach((btn) => {
+          btn.classList.remove('border-[var(--color-accent-amber)]', 'ring-1', 'ring-[var(--color-accent-amber)]/40', 'bg-[var(--color-canvas-subtle)]');
+          btn.classList.add('border-[var(--color-border)]');
+          btn.setAttribute('aria-selected', 'false');
+        });
+
+        item.classList.remove('border-[var(--color-border)]');
+        item.classList.add('border-[var(--color-accent-amber)]', 'ring-1', 'ring-[var(--color-accent-amber)]/40', 'bg-[var(--color-canvas-subtle)]');
+        item.setAttribute('aria-selected', 'true');
+
+        // On mobile screens, scroll comfortably up to the video player
+        if (window.innerWidth < 1024) {
+          const section = document.getElementById('stories-in-motion');
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+  })();
+</script>
